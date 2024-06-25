@@ -14,10 +14,9 @@ header {
 
 main.content {
     font-family: 'Helvetica Neue', Arial, sans-serif;
-    background: url('https://www.travelalaska.com/sites/default/files/styles/hero_xxl/public/2023-04/Seward%20Highway%20curvyhwy_2023_Shutterstock.jpg?itok=JiLox0fL') no-repeat center center fixed;
+    background: url('img.webp') no-repeat center center fixed;
     background-size: cover;
-    background-attachment: fixed;
-    color: #333; /* Change the color of the main titles */
+    color: #fff; /* Change the color of the main titles */
     width: 100%;
     min-height: 100vh; /* Ensures the background covers the full screen height */
     text-align: center;
@@ -26,6 +25,7 @@ main.content {
     justify-content: center;
     align-items: center;
     position: relative;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add text shadow for better readability */
 }
 
 .container {
@@ -38,10 +38,11 @@ main.content {
     max-width: 500px;
     width: 100%;
     margin: 20px auto;
-    background-color: rgba(255, 255, 255, 0.8); /* Transparent background */
+    background-color: rgba(34, 49, 63, 0.8); /* Semi-transparent dark green background */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a slight shadow */
+    color: #fff; /* Ensure text inside the form is white for contrast */
 }
 
 .form-group {
@@ -52,6 +53,7 @@ main.content {
     font-weight: bold;
     display: block;
     margin-bottom: 5px;
+    color: #fff; /* Ensure label color is readable */
 }
 
 .form-group input {
@@ -134,10 +136,16 @@ main.content {
 
 .main-title {
     font-size: 3rem; /* Default font size for large screens */
+    background: rgba(0, 0, 0, 0.5); /* Add semi-transparent background for better readability */
+    padding: 10px;
+    border-radius: 5px;
 }
 
 .main-subtitle {
     font-size: 2rem; /* Default font size for large screens */
+    background: rgba(0, 0, 0, 0.5); /* Add semi-transparent background for better readability */
+    padding: 5px;
+    border-radius: 5px;
 }
 
 @media (max-width: 768px) {
