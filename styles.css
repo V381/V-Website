@@ -18,7 +18,7 @@ header {
 
 main.content {
     font-family: 'Helvetica Neue', Arial, sans-serif;
-    background: url('asdsada.jpg') no-repeat center center fixed;
+    background: url('file:///mnt/data/image.png') no-repeat center center fixed;
     background-size: cover;
     color: #fff; /* Change the color of the main titles */
     width: 100%;
