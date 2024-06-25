@@ -6,6 +6,10 @@ body {
     overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
+nav {
+    background-color: rgba(34, 49, 63, 0.8);;
+}
+
 header {
     width: 100%;
     position: relative;
@@ -66,12 +70,12 @@ main.content {
 }
 
 .form-group input:focus {
-    border-color: #007bff;
+    border-color: rgba(34, 49, 63, 0.8);
     outline: none;
 }
 
 .btn-primary {
-    background-color: #007bff;
+    background-color: rgba(34, 49, 63, 0.8);
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
@@ -83,7 +87,7 @@ main.content {
 }
 
 .why-us {
-    background-color: #007bff;
+    background-color: rgba(34, 49, 63, 0.8);
 }
 
 .steps {
@@ -118,7 +122,7 @@ main.content {
     top: 0;
     bottom: 0;
     width: 2px;
-    background-color: #007bff;
+    background-color: rgba(34, 49, 63, 0.8);
     margin-right: 10px;
 }
 
