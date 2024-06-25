@@ -6,19 +6,19 @@ body {
     overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
-nav {
-    background-color: rgba(34, 49, 63, 0.8);;
-}
-
 header {
     width: 100%;
     position: relative;
     z-index: 2;
 }
 
+.navbar {
+    background-color: rgba(34, 49, 63, 0.8); /* Match the form background color */
+}
+
 main.content {
     font-family: 'Helvetica Neue', Arial, sans-serif;
-    background: url('img.webp') no-repeat center center fixed;
+    background: url('asdsada.png') no-repeat center center fixed;
     background-size: cover;
     color: #fff; /* Change the color of the main titles */
     width: 100%;
@@ -70,12 +70,12 @@ main.content {
 }
 
 .form-group input:focus {
-    border-color: rgba(34, 49, 63, 0.8);
+    border-color: rgba(34, 49, 63, 0.8); /* Match the navbar background color */
     outline: none;
 }
 
 .btn-primary {
-    background-color: rgba(34, 49, 63, 0.8);
+    background-color: rgba(34, 49, 63, 0.8); /* Match the navbar background color */
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
@@ -83,11 +83,11 @@ main.content {
 }
 
 .btn-primary:hover {
-    background-color: #0056b3;
+    background-color: rgba(27, 39, 50, 0.8); /* Darken the hover state slightly */
 }
 
 .why-us {
-    background-color: rgba(34, 49, 63, 0.8);
+    background-color: rgba(34, 49, 63, 0.8); /* Match the navbar background color */
 }
 
 .steps {
@@ -122,7 +122,7 @@ main.content {
     top: 0;
     bottom: 0;
     width: 2px;
-    background-color: rgba(34, 49, 63, 0.8);
+    background-color: rgba(34, 49, 63, 0.8); /* Match the navbar background color */
     margin-right: 10px;
 }
 
@@ -164,6 +164,10 @@ main.content {
     .form-section {
         margin-top: 20px;
         margin-bottom: 20px;
+    }
+
+    main.content {
+        background-attachment: scroll; /* Fix background scaling issue on mobile */
     }
 }
 
