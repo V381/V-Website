@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Pickup Form</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+
+<body>
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <a class="navbar-brand" href="#">Vehicle Shipping</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#how-it-works">How it Works</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#why-us">Why Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#pictures">Pictures</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#cost">Cost</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#checklist">Checklist</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main class="content d-flex align-items-center justify-content-center text-center">
+        <div class="container">
+            <h1 class="display-10 main-title" data-aos="fade-right">SHIPPING ANY VEHICLE, ANYWHERE, ANYTIME.</h1>
+            <h2 class="main-subtitle" data-aos="fade-left">GET A QUOTE</h2>
+            <section class="bg-white p-4 rounded form-section" data-aos="fade-up">
+                <form aria-label="Vehicle Pickup Form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name" required aria-required="true">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required aria-required="true">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" name="phone" class="form-control" placeholder="Enter your phone number" required aria-required="true">
+                    </div>
+                    <div class="form-group">
+                        <label for="vehicle">Vehicle</label>
+                        <input type="text" id="vehicle" name="vehicle" class="form-control" placeholder="Enter your vehicle details" required aria-required="true">
+                    </div>
+                    <div class="form-group">
+                        <label for="pickup-date">Pickup Date</label>
+                        <input type="date" id="pickup-date" name="pickup-date" class="form-control" required aria-required="true">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                </form>
+            </section>
+        </div>
+    </main>
+    <section id="why-us" class="why-us py-5 text-white text-center" data-aos="fade-up">
+        <div class="container">
+            <h3>Why Choose Us</h3>
+            <p class="lead">We provide reliable, efficient, and affordable vehicle shipping services. Our team of experts ensures your vehicle is transported safely and securely. Here are some reasons to choose us:</p>
+            <ul class="list-unstyled">
+                <li>Experienced Professionals</li>
+                <li>Safe and Secure Transport</li>
+                <li>Affordable Pricing</li>
+                <li>Excellent Customer Service</li>
+                <li>Nationwide Coverage</li>
+            </ul>
+        </div>
+    </section>
+    <section id="about" class="steps container my-5">
+        <h3 class="text-center mb-5">Steps to Ship Your Vehicle</h3>
+        <div class="step mb-4" data-aos="fade-up">
+            <h4>Step 1</h4>
+            <p>Request a quote by filling out our online form or giving us a call. We'll provide you with a detailed estimate based on your vehicle and shipping requirements.</p>
+        </div>
+        <div class="step mb-4" data-aos="fade-up" data-aos-delay="100">
+            <h4>Step 2</h4>
+            <p>Schedule your pickup date. We'll work with you to find a convenient time to pick up your vehicle from your specified location.</p>
+        </div>
+        <div class="step mb-4" data-aos="fade-up" data-aos-delay="200">
+            <h4>Step 3</h4>
+            <p>Prepare your vehicle for shipping. Remove all personal items, ensure it's clean, and check for any pre-existing damage.</p>
+        </div>
+        <div class="step mb-4" data-aos="fade-up" data-aos-delay="300">
+            <h4>Step 4</h4>
+            <p>We pick up your vehicle. Our professional team will handle the loading and transportation of your vehicle to ensure its safety and security.</p>
+        </div>
+        <div class="step mb-4" data-aos="fade-up" data-aos-delay="400">
+            <h4>Step 5</h4>
+            <p>Receive your vehicle at the destination. We'll deliver your vehicle to the specified location, ensuring it's in the same condition as when it was picked up.</p>
+        </div>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+
+        $(document).ready(function() {
+            // Smooth scrolling for links
+            $('a.nav-link').on('click', function(event) {
+                if (this.hash !== "") {
+                    event.preventDefault();
+                    var hash = this.hash;
+
+                    // Collapse the navbar after click
+                    $('.navbar-collapse').collapse('hide');
+
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top - $('.navbar').outerHeight()
+                    }, 800, function() {
+                        window.location.hash = hash;
+                    });
+                }
+            });
+
+            const toggleButton = $('.navbar-toggler');
+            const navbarLinks = $('#navbarNav');
+
+            toggleButton.on('click', function() {
+                navbarLinks.toggleClass('active');
+            });
+        });
+    </script>
+</body>
+
+</html>
