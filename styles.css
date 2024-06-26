@@ -31,6 +31,7 @@ main.content {
     align-items: center;
     position: relative;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add text shadow for better readability */
+    background-color: #2e3d49; /* Ensure a matching background color to prevent white flash */
     transition: background 0.5s ease-out;
 }
 
@@ -76,8 +77,8 @@ main.content {
     outline: none;
 }
 
-.btn-bg {
-    background-color: rgb(41, 74, 104); /* Updated button color */
+.btn-primary {
+    background-color: rgba(34, 49, 63, 0.9); /* Updated button color */
     border: none;
     padding: 10px 20px;
     border-radius: 5px;

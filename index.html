@@ -12,9 +12,43 @@
     <noscript><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"></noscript>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="preload" href="asdsada.webp" as="image">
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+            background-color: #2e3d49; /* Adjust this color to match your image's predominant color */
+        }
+
+        .spinner-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #2e3d49;
+        }
+
+        .spinner-border {
+            width: 3rem;
+            height: 3rem;
+            color: rgba(34, 49, 63, 0.9);
+        }
+
+        header, main, .why-us, .steps {
+            display: none; /* Hide content initially */
+        }
+    </style>
 </head>
 
 <body>
+    <div class="spinner-container">
+        <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+
     <header class="sticky-top">
         <nav class="navbar navbar-expand-lg navbar-dark">
             <a class="navbar-brand" href="#">Vehicle Shipping</a>
@@ -54,7 +88,7 @@
                         <label for="pickup-date">Pickup Date</label>
                         <input type="date" id="pickup-date" name="pickup-date" class="form-control" required aria-required="true">
                     </div>
-                    <button type="submit" class="btn btn-secondary w-100">Submit</button>
+                    <button type="submit" class="btn btn-primary btn-block">Submit</button>
                 </form>
             </section>
         </div>
@@ -134,6 +168,15 @@
             setTimeout(function() {
                 window.scrollTo(0, 0);
             }, 100);
+
+            // Hide the spinner and show the content when the page is fully loaded
+            window.addEventListener('load', function() {
+                document.querySelector('.spinner-container').style.display = 'none';
+                document.querySelector('header').style.display = 'block';
+                document.querySelector('main').style.display = 'block';
+                document.querySelector('.why-us').style.display = 'block';
+                document.querySelector('.steps').style.display = 'block';
+            });
         });
     </script>
 </body>
