@@ -4,6 +4,7 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: hidden; /* Prevent horizontal scrolling */
+    background-color: #2e3d49; /* Adjust this color to match your image's predominant color */
 }
 
 header {
@@ -18,7 +19,7 @@ header {
 
 main.content {
     font-family: 'Helvetica Neue', Arial, sans-serif;
-    background: url('asdsada.webp') no-repeat center center fixed; /* Optimized image */
+    background: url('asdsada.webp') no-repeat center center fixed;
     background-size: cover;
     color: #fff; /* Change the color of the main titles */
     width: 100%;
@@ -30,6 +31,7 @@ main.content {
     align-items: center;
     position: relative;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add text shadow for better readability */
+    transition: background 0.5s ease-out;
 }
 
 .container {
@@ -74,8 +76,8 @@ main.content {
     outline: none;
 }
 
-.btn-primary {
-    background-color: rgba(34, 49, 63, 0.8); /* Match the navbar background color */
+.btn-bg {
+    background-color: rgb(41, 74, 104); /* Updated button color */
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
