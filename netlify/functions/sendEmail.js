@@ -9,8 +9,8 @@ exports.handler = async (event, context) => {
     sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
     const msg = {
-        to: "pavle1027@gmail.com", // Change to your recipient
-        from: email, // Use the sender email from the form
+        to: email, // Change to your recipient
+        from: "pavle1027@gmail.com", // Use the sender email from the form
         subject: 'New Vehicle Pickup Request',
         text: `You have a new vehicle pickup request from ${name}.
         Email: ${email}
