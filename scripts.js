@@ -98,3 +98,33 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+
+(() => {
+    document.getElementById('vehicle-pickup-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const formData = new FormData(event.target);
+        const formObject = Object.fromEntries(formData.entries());
+    
+        fetch('/send-email', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formObject)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Email sent successfully!');
+            } else {
+                alert('Error sending email.');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Error sending email.');
+        });
+    });
+})();
