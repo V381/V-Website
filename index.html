@@ -14,12 +14,6 @@
 </head>
 
 <body>
-    <div class="spinner-container">
-        <div class="spinner-border" role="status">
-            <span class="sr-only">Loading...</span>
-        </div>
-    </div>
-
     <header class="sticky-top">
         <nav class="navbar navbar-expand-lg navbar-dark">
             <a class="navbar-brand" href="#">Vehicle Shipping</a>
@@ -29,6 +23,9 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a class="nav-link" href="#why-us">Why Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#steps">Steps</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#stats">Stats</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
                 </ul>
             </div>
         </nav>
@@ -40,23 +37,23 @@
             <section class="p-4 rounded form-section">
                 <form aria-label="Vehicle Pickup Form">
                     <div class="form-group">
-                        <label for="name">Name</label>
+                        <label for="name"><i class="fas fa-user"></i> Name</label>
                         <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name" required aria-required="true">
                     </div>
                     <div class="form-group">
-                        <label for="email">Email</label>
+                        <label for="email"><i class="fas fa-envelope"></i> Email</label>
                         <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required aria-required="true">
                     </div>
                     <div class="form-group">
-                        <label for="phone">Phone</label>
+                        <label for="phone"><i class="fas fa-phone"></i> Phone</label>
                         <input type="tel" id="phone" name="phone" class="form-control" placeholder="Enter your phone number" required aria-required="true">
                     </div>
                     <div class="form-group">
-                        <label for="vehicle">Vehicle</label>
+                        <label for="vehicle"><i class="fas fa-car"></i> Vehicle</label>
                         <input type="text" id="vehicle" name="vehicle" class="form-control" placeholder="Enter your vehicle details" required aria-required="true">
                     </div>
                     <div class="form-group">
-                        <label for="pickup-date">Pickup Date</label>
+                        <label for="pickup-date"><i class="fas fa-calendar-alt"></i> Pickup Date</label>
                         <input type="date" id="pickup-date" name="pickup-date" class="form-control" required aria-required="true">
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">Submit</button>
@@ -77,9 +74,9 @@
             </ul>
         </div>
     </section>
-    <section id="about" class="steps container my-5" data-aos="fade-up">
+    <section id="steps" class="steps container my-5" data-aos="fade-up">
         <h3 class="text-center mb-5">Steps to Ship Your Vehicle</h3>
-        <div class="step mb-4" data-aos="fade-up">
+        <div class="step mb-4">
             <h4>Step 1</h4>
             <p>Request a quote by filling out our online form or giving us a call. We'll provide you with a detailed estimate based on your vehicle and shipping requirements.</p>
         </div>
@@ -100,26 +97,78 @@
             <p>Receive your vehicle at the destination. We'll deliver your vehicle to the specified location, ensuring it's in the same condition as when it was picked up.</p>
         </div>
     </section>
-    <section id="stats" class="stats" data-aos="fade-up">
+    <section id="stats" class="stats" data-aos="fade-right">
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
                     <div class="stat">
                         <span class="stat-number" data-count="500">0</span>
+                        <div class="circle" data-percentage="100"></div>
                         <p>Cars Shipped</p>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="stat" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat" data-aos="fade-right" data-aos-delay="100">
                         <span class="stat-number" data-count="500">0</span>
+                        <div class="circle" data-percentage="100"></div>
                         <p>Happy Customers</p>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="stat" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat" data-aos="fade-right" data-aos-delay="200">
                         <span class="stat-number" data-count="500">0</span>
+                        <div class="circle" data-percentage="100"></div>
                         <p>Successful Deliveries</p>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="testimonials" class="testimonials py-5" data-aos="fade-down">
+        <div class="container">
+            <h3 class="text-center mb-5">Testimonials</h3>
+            <div class="row">
+                <div class="col-md-4 text-center">
+                    <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="John Doe" class="rounded-circle mb-3" width="100" height="100">
+                    <blockquote class="blockquote">
+                        <p class="mb-0">Great service! My vehicle arrived on time and in perfect condition. Highly recommend!</p>
+                        <footer class="blockquote-footer">John Doe</footer>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </blockquote>
+                </div>
+                <div class="col-md-4 text-center">
+                    <img src="https://randomuser.me/api/portraits/women/2.jpg" alt="Jane Smith" class="rounded-circle mb-3" width="100" height="100">
+                    <blockquote class="blockquote">
+                        <p class="mb-0">Efficient and reliable. The team was professional and kept me informed throughout the process.</p>
+                        <footer class="blockquote-footer">Jane Smith</footer>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </blockquote>
+                </div>
+                <div class="col-md-4 text-center">
+                    <img src="https://randomuser.me/api/portraits/men/3.jpg" alt="Michael Johnson" class="rounded-circle mb-3" width="100" height="100">
+                    <blockquote class="blockquote">
+                        <p class="mb-0">Excellent customer service and affordable pricing. I would definitely use their service again.</p>
+                        <footer class="blockquote-footer">Michael Johnson</footer>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </blockquote>
                 </div>
             </div>
         </div>
@@ -128,68 +177,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" defer></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" defer></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js" defer></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            AOS.init();
-
-            // Smooth scrolling for links
-            document.querySelectorAll('a.nav-link').forEach(function(anchor) {
-                anchor.addEventListener('click', function(event) {
-                    if (this.hash !== "") {
-                        event.preventDefault();
-                        const hash = this.hash;
-
-                        // Collapse the navbar after click
-                        document.querySelector('.navbar-collapse').classList.remove('show');
-
-                        window.scroll({
-                            top: document.querySelector(hash).offsetTop - document.querySelector('.navbar').offsetHeight,
-                            behavior: 'smooth'
-                        });
-
-                        window.location.hash = hash;
-                    }
-                });
-            });
-
-            const toggleButton = document.querySelector('.navbar-toggler');
-            const navbarLinks = document.getElementById('navbarNav');
-
-            toggleButton.addEventListener('click', function() {
-                navbarLinks.classList.toggle('active');
-            });
-
-            // Ensure page starts at the top on mobile
-            setTimeout(function() {
-                window.scrollTo(0, 0);
-            }, 100);
-
-            // Hide the spinner and show the content when the page is fully loaded
-            window.addEventListener('load', function() {
-                document.querySelector('.spinner-container').style.display = 'none';
-                document.querySelector('header').style.display = 'block';
-                document.querySelector('main').style.display = 'block';
-                document.querySelector('.why-us').style.display = 'block';
-                document.querySelector('.steps').style.display = 'block';
-                document.querySelector('.stats').style.display = 'block';
-
-                // Animate numbers
-                document.querySelectorAll('.stat-number').forEach(function(element) {
-                    const countTo = parseInt(element.getAttribute('data-count'));
-                    let count = 0;
-                    const interval = setInterval(function() {
-                        if (count >= countTo) {
-                            clearInterval(interval);
-                            element.textContent = countTo;
-                        } else {
-                            count++;
-                            element.textContent = count;
-                        }
-                    }, 10);
-                });
-            });
-        });
-    </script>
+    <script src="scripts.js" defer></script>
 </body>
 
 </html>

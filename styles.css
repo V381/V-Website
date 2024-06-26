@@ -1,38 +1,32 @@
+:root {
+    --primary-color: rgba(34, 49, 63, 0.8);
+    --primary-color-dark: rgba(27, 39, 50, 0.8);
+    --primary-color-darker: rgba(34, 49, 63, 0.9);
+    --background-color: #2e3d49;
+    --text-color: #fff;
+    --main-title-font-size-large: 3rem;
+    --main-title-font-size-small: 2rem;
+    --main-subtitle-font-size-large: 2rem;
+    --main-subtitle-font-size-small: 1.5rem;
+}
+
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
     color: #333;
     margin: 0;
     padding: 0;
     overflow-x: hidden; /* Prevent horizontal scrolling */
-    background-color: #2e3d49; /* Adjust this color to match your image's predominant color */
-}
-
-.spinner-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #2e3d49;
-}
-
-.spinner-border {
-    width: 3rem;
-    height: 3rem;
-    color: rgba(34, 49, 63, 0.9);
-}
-
-header, main, .why-us, .steps, .stats {
-    display: none; /* Hide content initially */
+    background-color: var(--background-color); /* Adjust this color to match your image's predominant color */
 }
 
 .navbar {
-    background-color: rgba(34, 49, 63, 0.8); /* Match the form background color */
+    background-color: var(--primary-color); /* Match the form background color */
 }
 
 main.content {
     font-family: 'Helvetica Neue', Arial, sans-serif;
-    background-color: #2e3d49; /* Same background color as the body */
-    color: #fff; /* Change the color of the main titles */
+    background-color: var(--background-color); /* Same background color as the body */
+    color: var(--text-color); /* Change the color of the main titles */
     width: 100%;
     min-height: 100vh; /* Ensures the background covers at least the full screen height */
     text-align: center;
@@ -55,11 +49,11 @@ main.content {
     max-width: 500px;
     width: 100%;
     margin: 20px auto;
-    background-color: rgba(34, 49, 63, 0.8); /* Semi-transparent dark background */
+    background-color: var(--primary-color); /* Semi-transparent dark background */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a slight shadow */
-    color: #fff; /* Ensure text inside the form is white for contrast */
+    color: var(--text-color); /* Ensure text inside the form is white for contrast */
 }
 
 .form-group {
@@ -70,7 +64,11 @@ main.content {
     font-weight: bold;
     display: block;
     margin-bottom: 5px;
-    color: #fff; /* Ensure label color is readable */
+    color: var(--text-color); /* Ensure label color is readable */
+}
+
+.form-group label i {
+    margin-right: 5px;
 }
 
 .form-group input {
@@ -83,12 +81,12 @@ main.content {
 }
 
 .form-group input:focus {
-    border-color: rgba(34, 49, 63, 0.8); /* Match the navbar background color */
+    border-color: var(--primary-color); /* Match the navbar background color */
     outline: none;
 }
 
 .btn-primary {
-    background-color: rgba(34, 49, 63, 0.9); /* Updated button color */
+    background-color: var(--primary-color-darker); /* Updated button color */
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
@@ -96,11 +94,11 @@ main.content {
 }
 
 .btn-primary:hover {
-    background-color: rgba(27, 39, 50, 0.8); /* Darken the hover state slightly */
+    background-color: var(--primary-color-dark); /* Darken the hover state slightly */
 }
 
 .why-us {
-    background-color: rgba(34, 49, 63, 0.8); /* Match the navbar background color */
+    background-color: var(--primary-color); /* Match the navbar background color */
 }
 
 .steps {
@@ -135,7 +133,7 @@ main.content {
     top: 0;
     bottom: 0;
     width: 2px;
-    background-color: rgba(34, 49, 63, 0.8); /* Match the navbar background color */
+    background-color: var(--primary-color); /* Match the navbar background color */
     margin-right: 10px;
 }
 
@@ -152,14 +150,14 @@ main.content {
 }
 
 .main-title {
-    font-size: 3rem; /* Default font size for large screens */
+    font-size: var(--main-title-font-size-large); /* Default font size for large screens */
     background: rgba(0, 0, 0, 0.5); /* Add semi-transparent background for better readability */
     padding: 10px;
     border-radius: 5px;
 }
 
 .main-subtitle {
-    font-size: 2rem; /* Default font size for large screens */
+    font-size: var(--main-subtitle-font-size-large); /* Default font size for large screens */
     background: rgba(0, 0, 0, 0.5); /* Add semi-transparent background for better readability */
     padding: 5px;
     border-radius: 5px;
@@ -167,11 +165,11 @@ main.content {
 
 @media (max-width: 768px) {
     .main-title {
-        font-size: 2rem; /* Adjust font size for smaller screens */
+        font-size: var(--main-title-font-size-small); /* Adjust font size for smaller screens */
     }
 
     .main-subtitle {
-        font-size: 1.5rem; /* Adjust font size for smaller screens */
+        font-size: var(--main-subtitle-font-size-small); /* Adjust font size for smaller screens */
     }
 
     .form-section {
@@ -211,8 +209,8 @@ main.content {
 }
 
 .stats {
-    background-color: rgba(34, 49, 63, 0.8); /* Match the "Why Us" section background color */
-    color: #fff;
+    background-color: var(--primary-color); /* Match the "Why Us" section background color */
+    color: var(--text-color);
     padding: 40px 0;
     text-align: center;
 }
@@ -220,9 +218,39 @@ main.content {
 .stats .stat {
     font-size: 2rem;
     margin-bottom: 20px;
+    position: relative;
 }
 
 .stats .stat-number {
     font-size: 3rem;
     font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: conic-gradient(var(--primary-color-darker) 0%, transparent 0%);
+    margin: 0 auto;
+}
+
+.testimonials {
+    background-color: #fff; /* White background for testimonials */
+    padding: 40px 0;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.testimonials .blockquote {
+    border-left: none;
+    margin: 0;
+}
+
+.testimonials .blockquote-footer {
+    color: var(--primary-color-dark);
+}
+
+.testimonials .stars {
+    color: var(--primary-color-dark);
 }
