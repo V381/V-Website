@@ -106,6 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         const formData = new FormData(event.target);
         const formObject = Object.fromEntries(formData.entries());
+        formData.append("senderEmail", "paavlee@yahoo.com")
     
         fetch('/send-email', {
             method: 'POST',

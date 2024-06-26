@@ -3,24 +3,13 @@ const sgMail = require('@sendgrid/mail');
 
 exports.handler = async (event, context) => {
     // Parse the incoming request data
-    const { name, email, phone, vehicle, pickupDate } = JSON.parse(event.body);
-
-    console.log('Function invoked');
-        console.log('Event Body:', event.body); // Log the event body
-
-        if (!event.body) {
-            throw new Error('No data received');
-        }
-        // Ensure all required fields are present
-        if (!name || !email || !senderEmail || !phone || !vehicle || !pickupDate) {
-            throw new Error('Missing fields in request data');
-        }
+    const { name, email, senderEmail, phone, vehicle, pickupDate } = JSON.parse(event.body);
 
     // Set your SendGrid API key
     sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
     const msg = {
-        to: 'paavlee@yahoo.com', // Change to your recipient
+        to: senderEmail, // Change to your recipient
         from: email, // Use the sender email from the form
         subject: 'New Vehicle Pickup Request',
         text: `You have a new vehicle pickup request from ${name}.
