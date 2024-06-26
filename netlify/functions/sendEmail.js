@@ -8,14 +8,13 @@ exports.handler = async (event, context) => {
     // Set your SendGrid API key
     sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-    const recipientEmail = 'pavle1027@gmail.com';
     if (!recipientEmail) {
         throw new Error('Recipient email is not set');
     }
 
     const msg = {
-        to: recipientEmail, // Change to your recipient
-        from: email, // Use the sender email from the form
+        to: email, // Change to your recipient
+        from: "pavle1027@gmail.com", // Use the sender email from the form
         subject: 'New Vehicle Pickup Request',
         text: `You have a new vehicle pickup request from ${name}.
         Email: ${email}
