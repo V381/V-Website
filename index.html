@@ -29,7 +29,7 @@
         <div class="container">
             <h1 class="display-10 main-title">SHIPPING ANY VEHICLE, ANYWHERE, ANYTIME.</h1>
             <h2 class="main-subtitle">GET A QUOTE</h2>
-            <section class="p-4 rounded form-section">
+            <section class="bg-white p-4 rounded form-section">
                 <form aria-label="Vehicle Pickup Form">
                     <div class="form-group">
                         <label for="name">Name</label>
@@ -125,7 +125,9 @@
             });
 
             // Ensure page starts at the top on mobile
-            window.scrollTo(0, 0);
+            setTimeout(function() {
+                window.scrollTo(0, 0);
+            }, 100);
         });
     </script>
 </body>
