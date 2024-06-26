@@ -7,10 +7,22 @@ body {
     background-color: #2e3d49; /* Adjust this color to match your image's predominant color */
 }
 
-header {
-    width: 100%;
-    position: relative;
-    z-index: 2;
+.spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #2e3d49;
+}
+
+.spinner-border {
+    width: 3rem;
+    height: 3rem;
+    color: rgba(34, 49, 63, 0.9);
+}
+
+header, main, .why-us, .steps, .stats {
+    display: none; /* Hide content initially */
 }
 
 .navbar {
@@ -196,4 +208,21 @@ main.content {
     .form-section {
         max-width: 70%;
     }
+}
+
+.stats {
+    background-color: rgba(34, 49, 63, 0.8); /* Match the "Why Us" section background color */
+    color: #fff;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.stats .stat {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.stats .stat-number {
+    font-size: 3rem;
+    font-weight: bold;
 }
