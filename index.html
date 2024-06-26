@@ -26,11 +26,11 @@
             </div>
         </nav>
     </header>
-    <main class="content d-flex align-items-center justify-content-center text-center">
+    <main class="content d-flex flex-column align-items-center justify-content-center text-center">
         <div class="container">
             <h1 class="display-10 main-title">SHIPPING ANY VEHICLE, ANYWHERE, ANYTIME.</h1>
             <h2 class="main-subtitle">GET A QUOTE</h2>
-            <section class="p-4 rounded form-section">
+            <section class="bg-white p-4 rounded form-section">
                 <form aria-label="Vehicle Pickup Form">
                     <div class="form-group">
                         <label for="name">Name</label>
@@ -98,31 +98,34 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        $(document).ready(function() {
+        document.addEventListener('DOMContentLoaded', function() {
             AOS.init();
 
             // Smooth scrolling for links
-            $('a.nav-link').on('click', function(event) {
-                if (this.hash !== "") {
-                    event.preventDefault();
-                    var hash = this.hash;
+            document.querySelectorAll('a.nav-link').forEach(function(anchor) {
+                anchor.addEventListener('click', function(event) {
+                    if (this.hash !== "") {
+                        event.preventDefault();
+                        const hash = this.hash;
 
-                    // Collapse the navbar after click
-                    $('.navbar-collapse').collapse('hide');
+                        // Collapse the navbar after click
+                        document.querySelector('.navbar-collapse').classList.remove('show');
 
-                    $('html, body').animate({
-                        scrollTop: $(hash).offset().top - $('.navbar').outerHeight()
-                    }, 800, function() {
+                        window.scroll({
+                            top: document.querySelector(hash).offsetTop - document.querySelector('.navbar').offsetHeight,
+                            behavior: 'smooth'
+                        });
+
                         window.location.hash = hash;
-                    });
-                }
+                    }
+                });
             });
 
-            const toggleButton = $('.navbar-toggler');
-            const navbarLinks = $('#navbarNav');
+            const toggleButton = document.querySelector('.navbar-toggler');
+            const navbarLinks = document.getElementById('navbarNav');
 
-            toggleButton.on('click', function() {
-                navbarLinks.toggleClass('active');
+            toggleButton.addEventListener('click', function() {
+                navbarLinks.classList.toggle('active');
             });
 
             // Ensure page starts at the top on mobile
