@@ -3,7 +3,7 @@ const sgMail = require('@sendgrid/mail');
 
 exports.handler = async (event, context) => {
     // Parse the incoming request data
-    const { name, email, senderEmail, phone, vehicle, pickupDate } = JSON.parse(event.body);
+    const { name, email, phone, vehicle, pickupDate } = JSON.parse(event.body);
 
     // Set your SendGrid API key
     sgMail.setApiKey(process.env.SENDGRID_API_KEY);
