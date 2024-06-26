@@ -1,0 +1,9 @@
+[build]
+  publish = "public"
+  functions = "netlify/functions"
+
+[[redirects]]
+  from = "/send-email"
+  to = "/.netlify/functions/sendEmail"
+  status = 200
+  method = ["POST"]
