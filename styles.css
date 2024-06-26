@@ -15,12 +15,13 @@ body {
     color: #333;
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
-    background-color: var(--background-color); /* Adjust this color to match your image's predominant color */
+    overflow-x: hidden;
+    background-color: var(--background-color);
 }
 
 nav.navbar {
-    background-color: var(--primary-color); /* Match the form background color */
+    background-color: var(--primary-color);
+    transition: background-color 0.3s, height 0.3s;
 }
 
 nav.navbar .nav-link {
@@ -39,19 +40,29 @@ nav.navbar .nav-link.active::after {
 
 main.content {
     font-family: 'Helvetica Neue', Arial, sans-serif;
-    color: var(--text-color); /* Change the color of the main titles */
+    color: var(--text-color);
     width: 100%;
-    min-height: 100vh; /* Ensures the background covers at least the full screen height */
+    min-height: 100vh;
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     position: relative;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add text shadow for better readability */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     transition: background 0.5s ease-out;
     background-color: var(--background-color);
-    overflow-x: hidden; /* Prevent horizontal scrolling */
+    overflow-x: hidden;
+}
+
+.parallax-window {
+    position: relative;
+    background: url('path-to-your-background-image.jpg') no-repeat center center;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    z-index: 1;
 }
 
 .wave-container {
@@ -61,7 +72,7 @@ main.content {
     left: 0;
     overflow: hidden;
     line-height: 0;
-    z-index: 1; /* Ensure the wave stays behind other content */
+    z-index: 1;
 }
 
 .waves {
@@ -82,23 +93,23 @@ main.content {
     max-width: 500px;
     width: 100%;
     margin: 20px auto;
-    background-color: var(--primary-color); /* Semi-transparent dark background */
+    background-color: var(--primary-color);
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a slight shadow */
-    color: var(--text-color); /* Ensure text inside the form is white for contrast */
-    overflow-x: hidden; /* Prevent horizontal scrolling */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: var(--text-color);
+    overflow-x: hidden;
 }
 
 .form-group {
-    text-align: left; /* Align labels to the left */
+    text-align: left;
 }
 
 .form-group label {
     font-weight: bold;
     display: block;
     margin-bottom: 5px;
-    color: var(--text-color); /* Ensure label color is readable */
+    color: var(--text-color);
 }
 
 .form-group label i {
@@ -115,12 +126,12 @@ main.content {
 }
 
 .form-group input:focus {
-    border-color: var(--primary-color); /* Match the navbar background color */
+    border-color: var(--primary-color);
     outline: none;
 }
 
 .btn-primary {
-    background-color: var(--primary-color-darker); /* Updated button color */
+    background-color: var(--primary-color-darker);
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
@@ -128,12 +139,12 @@ main.content {
 }
 
 .btn-primary:hover {
-    background-color: var(--primary-color-dark); /* Darken the hover state slightly */
+    background-color: var(--primary-color-dark);
 }
 
 .why-us {
-    background-color: var(--primary-color); /* Match the navbar background color */
-    overflow-x: hidden; /* Prevent horizontal scrolling */
+    background-color: var(--primary-color);
+    overflow-x: hidden;
 }
 
 .steps {
@@ -144,7 +155,7 @@ main.content {
     width: 100%;
     margin: 20px auto;
     text-align: left;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
+    overflow-x: hidden;
 }
 
 .step {
@@ -169,7 +180,7 @@ main.content {
     top: 0;
     bottom: 0;
     width: 2px;
-    background-color: var(--primary-color); /* Match the navbar background color */
+    background-color: var(--primary-color);
     margin-right: 10px;
 }
 
@@ -186,26 +197,26 @@ main.content {
 }
 
 .main-title {
-    font-size: var(--main-title-font-size-large); /* Default font size for large screens */
-    background: rgba(0, 0, 0, 0.5); /* Add semi-transparent background for better readability */
+    font-size: var(--main-title-font-size-large);
+    background: rgba(0, 0, 0, 0.5);
     padding: 10px;
     border-radius: 5px;
 }
 
 .main-subtitle {
-    font-size: var(--main-subtitle-font-size-large); /* Default font size for large screens */
-    background: rgba(0, 0, 0, 0.5); /* Add semi-transparent background for better readability */
+    font-size: var(--main-subtitle-font-size-large);
+    background: rgba(0, 0, 0, 0.5);
     padding: 5px;
     border-radius: 5px;
 }
 
 @media (max-width: 768px) {
     .main-title {
-        font-size: var(--main-title-font-size-small); /* Adjust font size for smaller screens */
+        font-size: var(--main-title-font-size-small);
     }
 
     .main-subtitle {
-        font-size: var(--main-subtitle-font-size-small); /* Adjust font size for smaller screens */
+        font-size: var(--main-subtitle-font-size-small);
     }
 
     .form-section {
@@ -214,7 +225,7 @@ main.content {
     }
 
     main.content {
-        background-attachment: scroll; /* Fix background scaling issue on mobile */
+        background-attachment: scroll;
     }
 }
 
@@ -245,11 +256,10 @@ main.content {
 }
 
 .stats {
-    background-color: var(--primary-color); /* Match the "Why Us" section background color */
+    background-color: var(--primary-color);
     color: var(--text-color);
     padding: 40px 0;
     text-align: center;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 .stats .stat {
@@ -273,11 +283,10 @@ main.content {
 }
 
 .testimonials {
-    background-color: #fff; /* White background for testimonials */
+    background-color: #fff;
     padding: 40px 0;
     text-align: center;
     margin-top: 40px;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 .testimonials .blockquote {
@@ -291,4 +300,45 @@ main.content {
 
 .testimonials .stars {
     color: var(--primary-color-dark);
+}
+
+.logo {
+    height: auto;
+    max-width: 100%;
+}
+
+@media (max-width: 768px) {
+    .logo {
+        width: 50%;
+        height: auto;
+    }
+}
+
+@media (max-width: 576px) {
+    .logo {
+        width: 75%;
+        height: auto;
+    }
+}
+
+@media (max-width: 400px) {
+    .logo {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav.navbar .navbar-brand img {
+    height: 50px;
+    transition: height 0.3s;
+}
+
+nav.navbar.shrink .navbar-brand img {
+    height: 30px;
 }

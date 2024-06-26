@@ -73,6 +73,13 @@ document.addEventListener('DOMContentLoaded', function() {
             statsAnimated = true;
         }
 
+        const navbar = document.querySelector('nav.navbar');
+        if (window.scrollY > 100) {
+            navbar.classList.add('shrink');
+        } else {
+            navbar.classList.remove('shrink');
+        }
+
         // Highlight navbar links based on scroll position
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('.nav-link');
