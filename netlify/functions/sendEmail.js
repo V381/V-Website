@@ -1,36 +1,49 @@
-// netlify/functions/sendEmail.js
 const sgMail = require('@sendgrid/mail');
 
 exports.handler = async (event, context) => {
-    // Parse the incoming request data
-    const { name, email, senderEmail, phone, vehicle, pickupDate } = JSON.parse(event.body);
-    console.log(event.body);
-    // Set your SendGrid API key
-    sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-
-    const msg = {
-        to: "pavle1027@gmail.com", // Change to your recipient
-        from: email, // Use the sender email from the form
-        subject: 'New Vehicle Pickup Request',
-        text: `You have a new vehicle pickup request from ${name}.
-        Email: ${email}
-        Phone: ${phone}
-        Vehicle: ${vehicle}
-        Pickup Date: ${pickupDate}`,
-        html: '<h1>MAIL STIGO</h1>'
-    };
-
     try {
+        console.log('Function invoked');
+        console.log('Event Body:', event.body);
+
+        if (!event.body) {
+            throw new Error('No data received');
+        }
+
+        const { name, email, phone, vehicle, pickupDate } = JSON.parse(event.body);
+
+        if (!name || !email || !phone || !vehicle || !pickupDate) {
+            throw new Error('Missing fields in request data');
+        }
+
+        const apiKey = process.env.SENDGRID_API_KEY;
+        if (!apiKey) {
+            throw new Error('SendGrid API key is not set');
+        }
+
+        sgMail.setApiKey(apiKey);
+        console.log(email)
+        const msg = {
+            to: "pavle1027@gmail.com", // Your email address
+            from: email, // User's email address from the form
+            subject: 'New Vehicle Pickup Request',
+            text: `You have a new vehicle pickup request from ${name}.
+            Email: ${email}
+            Phone: ${phone}
+            Vehicle: ${vehicle}
+            Pickup Date: ${pickupDate}`,
+        };
+
         await sgMail.send(msg);
+
         return {
             statusCode: 200,
             body: JSON.stringify({ success: true, message: 'Email sent successfully' }),
         };
     } catch (error) {
-        console.error(error);
+        console.error('Error occurred:', error);
         return {
             statusCode: 500,
-            body: JSON.stringify({ success: false, message: 'Error sending email' }),
+            body: JSON.stringify({ success: false, message: error.message }),
         };
     }
 };
