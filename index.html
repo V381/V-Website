@@ -164,6 +164,11 @@
                 navbarLinks.classList.toggle('active');
             });
 
+            // Ensure page starts at the top on mobile
+            setTimeout(function() {
+                window.scrollTo(0, 0);
+            }, 100);
+
             // Hide the spinner and show the content when the page is fully loaded
             window.addEventListener('load', function() {
                 document.querySelector('.spinner-container').style.display = 'none';
