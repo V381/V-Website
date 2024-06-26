@@ -19,13 +19,26 @@ body {
     background-color: var(--background-color); /* Adjust this color to match your image's predominant color */
 }
 
-.navbar {
+nav.navbar {
     background-color: var(--primary-color); /* Match the form background color */
+}
+
+nav.navbar .nav-link {
+    position: relative;
+}
+
+nav.navbar .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: var(--primary-color-dark);
 }
 
 main.content {
     font-family: 'Helvetica Neue', Arial, sans-serif;
-    background-color: var(--background-color); /* Same background color as the body */
     color: var(--text-color); /* Change the color of the main titles */
     width: 100%;
     min-height: 100vh; /* Ensures the background covers at least the full screen height */
@@ -37,15 +50,35 @@ main.content {
     position: relative;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add text shadow for better readability */
     transition: background 0.5s ease-out;
+    background-color: var(--background-color);
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.wave-container {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    line-height: 0;
+    z-index: 1; /* Ensure the wave stays behind other content */
+}
+
+.waves {
+    width: 100%;
+    height: auto;
+    z-index: 1;
 }
 
 .container {
     max-width: 100%;
     padding-left: 15px;
     padding-right: 15px;
+    z-index: 2;
 }
 
 .form-section {
+    z-index: 2;
     max-width: 500px;
     width: 100%;
     margin: 20px auto;
@@ -54,6 +87,7 @@ main.content {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a slight shadow */
     color: var(--text-color); /* Ensure text inside the form is white for contrast */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 .form-group {
@@ -99,6 +133,7 @@ main.content {
 
 .why-us {
     background-color: var(--primary-color); /* Match the navbar background color */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 .steps {
@@ -109,6 +144,7 @@ main.content {
     width: 100%;
     margin: 20px auto;
     text-align: left;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 .step {
@@ -213,6 +249,7 @@ main.content {
     color: var(--text-color);
     padding: 40px 0;
     text-align: center;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 .stats .stat {
@@ -240,6 +277,7 @@ main.content {
     padding: 40px 0;
     text-align: center;
     margin-top: 40px;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 .testimonials .blockquote {

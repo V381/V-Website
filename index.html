@@ -31,6 +31,20 @@
         </nav>
     </header>
     <main class="content d-flex flex-column align-items-center justify-content-center text-center">
+        <div class="wave-container">
+            <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                 viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                <defs>
+                    <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                </defs>
+                <g class="parallax">
+                    <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7)" />
+                    <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+                    <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+                    <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+                </g>
+            </svg>
+        </div>
         <div class="container">
             <h1 class="display-10 main-title">SHIPPING ANY VEHICLE, ANYWHERE, ANYTIME.</h1>
             <h2 class="main-subtitle">GET A QUOTE</h2>
@@ -61,118 +75,120 @@
             </section>
         </div>
     </main>
-    <section id="why-us" class="why-us py-5 text-white text-center" data-aos="fade-left">
-        <div class="container">
-            <h3>Why Choose Us</h3>
-            <p class="lead">We provide reliable, efficient, and affordable vehicle shipping services. Our team of experts ensures your vehicle is transported safely and securely. Here are some reasons to choose us:</p>
-            <ul class="list-unstyled">
-                <li>Experienced Professionals</li>
-                <li>Safe and Secure Transport</li>
-                <li>Affordable Pricing</li>
-                <li>Excellent Customer Service</li>
-                <li>Nationwide Coverage</li>
-            </ul>
-        </div>
-    </section>
-    <section id="steps" class="steps container my-5" data-aos="fade-up">
-        <h3 class="text-center mb-5">Steps to Ship Your Vehicle</h3>
-        <div class="step mb-4">
-            <h4>Step 1</h4>
-            <p>Request a quote by filling out our online form or giving us a call. We'll provide you with a detailed estimate based on your vehicle and shipping requirements.</p>
-        </div>
-        <div class="step mb-4" data-aos="fade-up" data-aos-delay="100">
-            <h4>Step 2</h4>
-            <p>Schedule your pickup date. We'll work with you to find a convenient time to pick up your vehicle from your specified location.</p>
-        </div>
-        <div class="step mb-4" data-aos="fade-up" data-aos-delay="200">
-            <h4>Step 3</h4>
-            <p>Prepare your vehicle for shipping. Remove all personal items, ensure it's clean, and check for any pre-existing damage.</p>
-        </div>
-        <div class="step mb-4" data-aos="fade-up" data-aos-delay="300">
-            <h4>Step 4</h4>
-            <p>We pick up your vehicle. Our professional team will handle the loading and transportation of your vehicle to ensure its safety and security.</p>
-        </div>
-        <div class="step mb-4" data-aos="fade-up" data-aos-delay="400">
-            <h4>Step 5</h4>
-            <p>Receive your vehicle at the destination. We'll deliver your vehicle to the specified location, ensuring it's in the same condition as when it was picked up.</p>
-        </div>
-    </section>
-    <section id="stats" class="stats" data-aos="fade-right">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="stat">
-                        <span class="stat-number" data-count="500">0</span>
-                        <div class="circle" data-percentage="100"></div>
-                        <p>Cars Shipped</p>
+    <div class="overflow-hidden">
+        <section id="why-us" class="why-us py-5 text-white text-center" data-aos="fade-left">
+            <div class="container">
+                <h3>Why Choose Us</h3>
+                <p class="lead">We provide reliable, efficient, and affordable vehicle shipping services. Our team of experts ensures your vehicle is transported safely and securely. Here are some reasons to choose us:</p>
+                <ul class="list-unstyled">
+                    <li>Experienced Professionals</li>
+                    <li>Safe and Secure Transport</li>
+                    <li>Affordable Pricing</li>
+                    <li>Excellent Customer Service</li>
+                    <li>Nationwide Coverage</li>
+                </ul>
+            </div>
+        </section>
+        <section id="steps" class="steps container my-5" data-aos="fade-up">
+            <h3 class="text-center mb-5">Steps to Ship Your Vehicle</h3>
+            <div class="step mb-4">
+                <h4>Step 1</h4>
+                <p>Request a quote by filling out our online form or giving us a call. We'll provide you with a detailed estimate based on your vehicle and shipping requirements.</p>
+            </div>
+            <div class="step mb-4" data-aos="fade-up" data-aos-delay="100">
+                <h4>Step 2</h4>
+                <p>Schedule your pickup date. We'll work with you to find a convenient time to pick up your vehicle from your specified location.</p>
+            </div>
+            <div class="step mb-4" data-aos="fade-up" data-aos-delay="200">
+                <h4>Step 3</h4>
+                <p>Prepare your vehicle for shipping. Remove all personal items, ensure it's clean, and check for any pre-existing damage.</p>
+            </div>
+            <div class="step mb-4" data-aos="fade-up" data-aos-delay="300">
+                <h4>Step 4</h4>
+                <p>We pick up your vehicle. Our professional team will handle the loading and transportation of your vehicle to ensure its safety and security.</p>
+            </div>
+            <div class="step mb-4" data-aos="fade-up" data-aos-delay="400">
+                <h4>Step 5</h4>
+                <p>Receive your vehicle at the destination. We'll deliver your vehicle to the specified location, ensuring it's in the same condition as when it was picked up.</p>
+            </div>
+        </section>
+        <section id="stats" class="stats" data-aos="fade-right">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="stat">
+                            <span class="stat-number" data-count="500">0</span>
+                            <div class="circle" data-percentage="100"></div>
+                            <p>Cars Shipped</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="stat" data-aos="fade-right" data-aos-delay="100">
-                        <span class="stat-number" data-count="500">0</span>
-                        <div class="circle" data-percentage="100"></div>
-                        <p>Happy Customers</p>
+                    <div class="col-md-4">
+                        <div class="stat" data-aos="fade-right" data-aos-delay="100">
+                            <span class="stat-number" data-count="500">0</span>
+                            <div class="circle" data-percentage="100"></div>
+                            <p>Happy Customers</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="stat" data-aos="fade-right" data-aos-delay="200">
-                        <span class="stat-number" data-count="500">0</span>
-                        <div class="circle" data-percentage="100"></div>
-                        <p>Successful Deliveries</p>
+                    <div class="col-md-4">
+                        <div class="stat" data-aos="fade-right" data-aos-delay="200">
+                            <span class="stat-number" data-count="500">0</span>
+                            <div class="circle" data-percentage="100"></div>
+                            <p>Successful Deliveries</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <section id="testimonials" class="testimonials py-5" data-aos="fade-down">
-        <div class="container">
-            <h3 class="text-center mb-5">Testimonials</h3>
-            <div class="row">
-                <div class="col-md-4 text-center">
-                    <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="John Doe" class="rounded-circle mb-3" width="100" height="100">
-                    <blockquote class="blockquote">
-                        <p class="mb-0">Great service! My vehicle arrived on time and in perfect condition. Highly recommend!</p>
-                        <footer class="blockquote-footer">John Doe</footer>
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </blockquote>
-                </div>
-                <div class="col-md-4 text-center">
-                    <img src="https://randomuser.me/api/portraits/women/2.jpg" alt="Jane Smith" class="rounded-circle mb-3" width="100" height="100">
-                    <blockquote class="blockquote">
-                        <p class="mb-0">Efficient and reliable. The team was professional and kept me informed throughout the process.</p>
-                        <footer class="blockquote-footer">Jane Smith</footer>
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </blockquote>
-                </div>
-                <div class="col-md-4 text-center">
-                    <img src="https://randomuser.me/api/portraits/men/3.jpg" alt="Michael Johnson" class="rounded-circle mb-3" width="100" height="100">
-                    <blockquote class="blockquote">
-                        <p class="mb-0">Excellent customer service and affordable pricing. I would definitely use their service again.</p>
-                        <footer class="blockquote-footer">Michael Johnson</footer>
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </blockquote>
+        </section>
+        <section id="testimonials" class="testimonials py-5" data-aos="fade-left">
+            <div class="container">
+                <h3 class="text-center mb-5">Testimonials</h3>
+                <div class="row">
+                    <div class="col-md-4 text-center">
+                        <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="John Doe" class="rounded-circle mb-3" width="100" height="100">
+                        <blockquote class="blockquote">
+                            <p class="mb-0">Great service! My vehicle arrived on time and in perfect condition. Highly recommend!</p>
+                            <footer class="blockquote-footer">John Doe</footer>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </blockquote>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <img src="https://randomuser.me/api/portraits/women/2.jpg" alt="Jane Smith" class="rounded-circle mb-3" width="100" height="100">
+                        <blockquote class="blockquote">
+                            <p class="mb-0">Efficient and reliable. The team was professional and kept me informed throughout the process.</p>
+                            <footer class="blockquote-footer">Jane Smith</footer>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </blockquote>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <img src="https://randomuser.me/api/portraits/men/3.jpg" alt="Michael Johnson" class="rounded-circle mb-3" width="100" height="100">
+                        <blockquote class="blockquote">
+                            <p class="mb-0">Excellent customer service and affordable pricing. I would definitely use their service again.</p>
+                            <footer class="blockquote-footer">Michael Johnson</footer>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </blockquote>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" defer></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" defer></script>
