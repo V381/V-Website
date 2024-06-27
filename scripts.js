@@ -104,27 +104,52 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('vehicle-pickup-form').addEventListener('submit', function(event) {
         event.preventDefault();
         
-        const formData = new FormData(event.target);
-        const formObject = Object.fromEntries(formData.entries());
-    
-        fetch('/send-email', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(formObject)
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                alert('Email sent successfully!');
+        const form = document.getElementById('vehicle-pickup-form');
+    form.addEventListener('submit', async function (event) {
+        event.preventDefault();
+        
+        const formData = new FormData(form);
+        const data = {
+            name: formData.get('name'),
+            email: formData.get('email'),
+            phone: formData.get('phone'),
+            vehicle: formData.get('vehicle'),
+            pickupDate: formData.get('pickupDate')
+        };
+
+        try {
+            const response = await fetch('/.netlify/functions/sendEmail', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+
+            if (response.ok) {
+                const result = await response.json();
+                if (result.success) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Email Sent!',
+                        text: 'Your vehicle pickup request has been sent successfully.',
+                        confirmButtonText: 'OK'
+                    });
+                    form.reset();
+                } else {
+                    throw new Error(result.message);
+                }
             } else {
-                alert('Error sending email.');
+                throw new Error('Network response was not ok.');
             }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('Error sending email.');
-        });
+        } catch (error) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: `An error occurred: ${error.message}`,
+                confirmButtonText: 'OK'
+            });
+        }
+    });
     });
 })();
