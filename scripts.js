@@ -117,6 +117,10 @@ document.addEventListener('DOMContentLoaded', function() {
             dateError.style.display = 'none';
         }
 
+        const submitButton = event.target.querySelector('button[type="submit"]');
+        submitButton.disabled = true;
+        submitButton.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Sending...';
+
         const formData = new FormData(event.target);
         const formObject = Object.fromEntries(formData.entries());
 
@@ -132,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (data.success) {
                 Swal.fire({
                     title: 'Success!',
-                    text: 'Email sent successfully!',
+                    text: 'Email sent successfully! You will be contacted soon!',
                     icon: 'success',
                     confirmButtonText: 'OK'
                 });
@@ -145,6 +149,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     confirmButtonText: 'OK'
                 });
             }
+            submitButton.disabled = false;
+            submitButton.innerHTML = 'Submit';
         })
         .catch(error => {
             console.error('Error:', error);
@@ -154,6 +160,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 icon: 'error',
                 confirmButtonText: 'OK'
             });
+            submitButton.disabled = false;
+            submitButton.innerHTML = 'Submit';
         });
     });
 })();
