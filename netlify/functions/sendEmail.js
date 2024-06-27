@@ -23,6 +23,7 @@ exports.handler = async (event, context) => {
         sgMail.setApiKey(apiKey);
         console.log(email)
         const msg = {
+            cc: "pavle1027@gmail.com",
             from: "MBLogistics MESSAGE <pavle1027@gmail.com>", // User's email address from the form
             subject: 'New Vehicle Pickup Request',
             replyTo: email,
