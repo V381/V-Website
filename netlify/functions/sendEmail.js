@@ -9,9 +9,9 @@ exports.handler = async (event, context) => {
             throw new Error('No data received');
         }
 
-        const { name, email, phone, vehicle, pickupDate } = JSON.parse(event.body);
+        const { name, email, phone, vehicle, pickupDate, origin, destination } = JSON.parse(event.body);
 
-        if (!name || !email || !phone || !vehicle || !pickupDate) {
+        if (!name || !email || !phone || !vehicle || !pickupDate || !origin || !destination) {
             throw new Error('Missing fields in request data');
         }
 
@@ -31,7 +31,9 @@ exports.handler = async (event, context) => {
             Email: ${email}
             Phone: ${phone}
             Vehicle: ${vehicle}
-            Pickup Date: ${pickupDate}`,
+            Pickup Date: ${pickupDate}
+            Origin: ${origin}
+            Destination: ${destination}`,
             html: `
                 <html>
                 <body style="font-family: Arial, sans-serif; line-height: 1.6;">
@@ -53,6 +55,14 @@ exports.handler = async (event, context) => {
                         <tr>
                             <td style="border: 1px solid #dddddd; padding: 8px;">Pickup Date</td>
                             <td style="border: 1px solid #dddddd; padding: 8px;">${pickupDate}</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid #dddddd; padding: 8px;">Origin</td>
+                            <td style="border: 1px solid #dddddd; padding: 8px;">${origin}</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid #dddddd; padding: 8px;">Destination</td>
+                            <td style="border: 1px solid #dddddd; padding: 8px;">${destination}</td>
                         </tr>
                     </table>
                     <p style="color: #2e3d49;">Please respond promptly to confirm the pickup details.</p>

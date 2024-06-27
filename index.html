@@ -77,12 +77,22 @@
                         <input type="text" id="vehicle" name="vehicle" class="form-control" placeholder="Enter your vehicle details" required aria-required="true">
                     </div>
                     <div class="form-group">
+                        <label for="origin"><i class="fas fa-map-marker-alt"></i> Origin</label>
+                        <input type="text" id="origin" name="origin" class="form-control" placeholder="Enter the origin location" required aria-required="true">
+                    </div>
+                    <div class="form-group">
+                        <label for="destination"><i class="fas fa-map-marker-alt"></i> Destination</label>
+                        <input type="text" id="destination" name="destination" class="form-control" placeholder="Enter the destination location" required aria-required="true">
+                    </div>
+                    <div class="form-group">
                         <label for="pickup-date"><i class="fas fa-calendar-alt"></i> Pickup Date</label>
                         <input type="date" id="pickup-date" name="pickupDate" class="form-control" required aria-required="true">
+                        <div id="date-error" class="text-danger mt-2" style="display: none;">Please select a future date.</div>
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">Submit</button>
                 </form>
             </section>
+            
         </div>
     </main>
     <div class="overflow-hidden">

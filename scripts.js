@@ -100,12 +100,26 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 (() => {
+    // Form validation
     document.getElementById('vehicle-pickup-form').addEventListener('submit', function(event) {
         event.preventDefault();
-        
+
+        const pickupDateInput = document.getElementById('pickup-date');
+        const dateError = document.getElementById('date-error');
+        const selectedDate = new Date(pickupDateInput.value);
+        const today = new Date();
+        today.setHours(0, 0, 0, 0); // Set to midnight to compare only date part
+
+        if (selectedDate < today) {
+            dateError.style.display = 'block';
+            return;
+        } else {
+            dateError.style.display = 'none';
+        }
+
         const formData = new FormData(event.target);
         const formObject = Object.fromEntries(formData.entries());
-    
+
         fetch('/send-email', {
             method: 'POST',
             headers: {
@@ -117,17 +131,16 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(data => {
             if (data.success) {
                 Swal.fire({
+                    title: 'Success!',
+                    text: 'Email sent successfully!',
                     icon: 'success',
-                    title: 'Email Sent!',
-                    text: 'Your vehicle pickup request has been sent successfully.',
                     confirmButtonText: 'OK'
                 });
-                document.getElementById('vehicle-pickup-form').reset();
             } else {
                 Swal.fire({
+                    title: 'Error!',
+                    text: 'Error sending email.',
                     icon: 'error',
-                    title: 'Error',
-                    text: 'There was an error sending your request. Please try again later.',
                     confirmButtonText: 'OK'
                 });
             }
@@ -135,9 +148,9 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(error => {
             console.error('Error:', error);
             Swal.fire({
+                title: 'Error!',
+                text: 'Error sending email.',
                 icon: 'error',
-                title: 'Error',
-                text: 'There was an error sending your request. Please try again later.',
                 confirmButtonText: 'OK'
             });
         });
