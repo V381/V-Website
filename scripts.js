@@ -143,3 +143,21 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 })();
+
+
+(() => {
+    document.querySelector('.quote-section a').addEventListener('click', function(event) {
+        event.preventDefault();
+        const targetElement = document.querySelector(this.getAttribute('href'));
+        const navbarHeight = document.querySelector('.navbar').offsetHeight;
+    
+        window.scroll({
+            top: targetElement.offsetTop - navbarHeight,
+            behavior: 'smooth'
+        });
+    
+        // Update URL hash without jumping
+        history.pushState(null, null, this.getAttribute('href'));
+    });
+    
+})();
