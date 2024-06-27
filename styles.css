@@ -549,3 +549,36 @@ nav.navbar.shrink .navbar-brand img {
 .faq .card-header .btn-link.collapsed::after {
     transform: rotate(-90deg); /* Rotate arrow when collapsed */
 }
+
+
+/* Centering the navbar content */
+.navbar-collapse {
+    justify-content: center;
+}
+
+/* Navbar icons on larger screens */
+.navbar-nav .nav-item.d-none.d-lg-inline-block .nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar-nav .nav-item.d-none.d-lg-inline-block .nav-link i {
+    margin-right: 5px;
+}
+
+/* Adding border between the items */
+.nav-item.border-right {
+    border-right: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* Adjust the padding of the border-right items */
+.nav-item.d-none.d-lg-inline-block.border-right {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+/* Adjust padding for the non-border items */
+.nav-item.d-none.d-lg-inline-block {
+    padding-left: 15px;
+}
