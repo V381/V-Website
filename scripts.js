@@ -136,6 +136,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     icon: 'success',
                     confirmButtonText: 'OK'
                 });
+                document.getElementById('vehicle-pickup-form').reset();
             } else {
                 Swal.fire({
                     title: 'Error!',
