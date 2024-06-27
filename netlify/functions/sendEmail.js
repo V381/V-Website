@@ -24,7 +24,7 @@ exports.handler = async (event, context) => {
         console.log(email)
         const msg = {
             to: "pavle1027@gmail.com",
-            from: "MBLogistics MESSAGE <pavle1027@gmail.com>", // User's email address from the form
+            from: "pavle1027@gmail.com", // User's email address from the form
             subject: 'New Vehicle Pickup Request',
             replyTo: email,
             text: `You have a new vehicle pickup request from ${name}.
