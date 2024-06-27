@@ -89,6 +89,10 @@
                         <input type="date" id="pickup-date" name="pickupDate" class="form-control" required aria-required="true">
                         <div id="date-error" class="text-danger mt-2" style="display: none;">Please select a future date.</div>
                     </div>
+                    <div style="display:none;">
+                        <label for="honeypot">If you are a human, leave this field blank:</label>
+                        <input type="text" id="honeypot" name="honeypot" value="">
+                    </div>
                     <button type="submit" class="btn btn-primary btn-block">Submit</button>
                 </form>
             </section>

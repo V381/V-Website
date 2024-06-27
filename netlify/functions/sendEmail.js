@@ -9,7 +9,12 @@ exports.handler = async (event, context) => {
             throw new Error('No data received');
         }
 
-        const { name, email, phone, vehicle, pickupDate, origin, destination } = JSON.parse(event.body);
+        const { name, email, phone, vehicle, pickupDate, origin, destination, honeypot } = JSON.parse(event.body);
+
+        if (honeypot) {
+            // Bot detected
+            throw new Error('Bot detected');
+        }
 
         if (!name || !email || !phone || !vehicle || !pickupDate || !origin || !destination) {
             throw new Error('Missing fields in request data');
@@ -24,7 +29,7 @@ exports.handler = async (event, context) => {
         console.log(email)
         const msg = {
             to: "pavle1027@gmail.com",
-            from: "pavle1027@gmail.com", // User's email address from the form
+            from: "pavle1027@gmail.com",
             subject: 'New Vehicle Pickup Request',
             replyTo: email,
             text: `You have a new vehicle pickup request from ${name}.
