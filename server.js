@@ -13,6 +13,8 @@ app.use(bodyParser.json());
 // Set SendGrid API Key
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
+console.log(process.env.SENDGRID_API_KEY)
+
 app.post('/send-email', (req, res) => {
     const { name, email, phone, vehicle, origin, destination, pickupDate, honeypot } = req.body;
 

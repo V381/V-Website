@@ -28,8 +28,8 @@ exports.handler = async (event, context) => {
         sgMail.setApiKey(apiKey);
         console.log(email)
         const msg = {
-            to: "pavle1027@gmail.com",
-            from: "pavle1027@gmail.com",
+            to: "mbsuperblogistics@gmail.com",
+            from: "mbsuperblogistics@gmail.com",
             subject: 'New Vehicle Pickup Request',
             replyTo: email,
             text: `You have a new vehicle pickup request from ${name}.
