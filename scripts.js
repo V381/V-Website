@@ -153,6 +153,7 @@ document.addEventListener('DOMContentLoaded', function() {
             submitButton.innerHTML = 'Submit';
         })
         .catch(error => {
+            console.log(formObject)
             console.error('Error:', error);
             Swal.fire({
                 title: 'Error!',
