@@ -593,3 +593,35 @@ nav.navbar.shrink .navbar-brand img {
     border-radius: 50%;
     animation: .75s linear infinite spinner-border;
 }
+
+#agreement {
+    text-align: left;
+}
+
+.privacy-container {
+    max-width: 800px;
+    padding: 20px;
+    background-color: var(--primary-color-darker);
+    color: var(--text-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.footer {
+    background-color: var(--primary-color);
+}
+
+.footer a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: var(--text-color);
+    text-decoration: underline;
+}
+
+.footer hr {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}

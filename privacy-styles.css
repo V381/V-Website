@@ -1,0 +1,159 @@
+:root {
+    --primary-color: rgba(34, 49, 63, 0.8);
+    --primary-color-dark: rgba(27, 39, 50, 0.8);
+    --primary-color-darker: rgba(34, 49, 63, 0.9);
+    --background-color: #2e3d49;
+    --text-color: #fff;
+    --main-title-font-size-large: 3rem;
+    --main-title-font-size-small: 2rem;
+    --main-subtitle-font-size-large: 2rem;
+    --main-subtitle-font-size-small: 1.5rem;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: var(--background-color);
+}
+
+nav.navbar {
+    background-color: var(--primary-color);
+    transition: background-color 0.3s, height 0.3s;
+}
+
+nav.navbar .nav-link {
+    position: relative;
+}
+
+nav.navbar .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: var(--primary-color-dark);
+}
+
+.wave-container {
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    line-height: 0;
+    z-index: 1;
+}
+
+.waves {
+    width: 100%;
+    height: auto;
+    z-index: 1;
+}
+
+.container {
+    max-width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    z-index: 2;
+}
+
+.privacy-page {
+    padding: 60px 20px;
+    background-color: var(--primary-color-dark);
+    color: var(--text-color);
+    text-align: left;
+}
+
+.privacy-page h1, .privacy-page h2 {
+    color: var(--text-color);
+    margin-top: 20px;
+}
+
+.privacy-page p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.privacy-page a {
+    color: var(--primary-color-darker);
+    text-decoration: underline;
+}
+
+.privacy-page a:hover {
+    color: var(--primary-color-dark);
+}
+
+footer {
+    background-color: var(--primary-color-darker);
+    color: var(--text-color);
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+}
+
+/* Centering the navbar content */
+.navbar-collapse {
+    justify-content: center;
+}
+
+/* Navbar icons on larger screens */
+.navbar-nav .nav-item.d-none.d-lg-inline-block .nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar-nav .nav-item.d-none.d-lg-inline-block .nav-link i {
+    margin-right: 5px;
+}
+
+/* Adding border between the items */
+.nav-item.border-right {
+    border-right: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* Adjust the padding of the border-right items */
+.nav-item.d-none.d-lg-inline-block.border-right {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+/* Adjust padding for the non-border items */
+.nav-item.d-none.d-lg-inline-block {
+    padding-left: 15px;
+}
+
+.spinner-border {
+    width: 1rem;
+    height: 1rem;
+    vertical-align: text-bottom;
+    border: .25em solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: .75s linear infinite spinner-border;
+}
+
+#agreement {
+    text-align: left;
+}
+.footer {
+    background-color: var(--primary-color);
+}
+
+.footer a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: var(--text-color);
+    text-decoration: underline;
+}
+
+.footer hr {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
