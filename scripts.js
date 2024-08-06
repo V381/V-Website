@@ -123,6 +123,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const formData = new FormData(event.target);
         const formObject = Object.fromEntries(formData.entries());
+        console.log(formData);
 
         fetch('/send-email', {
             method: 'POST',
