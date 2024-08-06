@@ -122,8 +122,12 @@ document.addEventListener('DOMContentLoaded', function() {
         submitButton.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Sending...';
 
         const formData = new FormData(event.target);
+        
+        // Manually add the checkbox value to the form data
+        const checkbox = document.getElementById('agreement');
+        formData.append('sms', checkbox.checked ? 'on' : 'off'); 
+
         const formObject = Object.fromEntries(formData.entries());
-        console.log(formData);
 
         fetch('/send-email', {
             method: 'POST',
@@ -154,7 +158,6 @@ document.addEventListener('DOMContentLoaded', function() {
             submitButton.innerHTML = 'Submit';
         })
         .catch(error => {
-            console.log(formObject)
             console.error('Error:', error);
             Swal.fire({
                 title: 'Error!',
@@ -166,22 +169,4 @@ document.addEventListener('DOMContentLoaded', function() {
             submitButton.innerHTML = 'Submit';
         });
     });
-})();
-
-
-(() => {
-    document.querySelector('.quote-section a').addEventListener('click', function(event) {
-        event.preventDefault();
-        const targetElement = document.querySelector(this.getAttribute('href'));
-        const navbarHeight = document.querySelector('.navbar').offsetHeight;
-    
-        window.scroll({
-            top: targetElement.offsetTop - navbarHeight,
-            behavior: 'smooth'
-        });
-    
-        // Update URL hash without jumping
-        history.pushState(null, null, this.getAttribute('href'));
-    });
-    
 })();
