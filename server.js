@@ -16,7 +16,7 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 console.log(process.env.SENDGRID_API_KEY)
 
 app.post('/send-email', (req, res) => {
-    const { name, email, phone, vehicle, origin, destination, pickupDate, honeypot } = req.body;
+    const { name, email, phone, vehicle, origin, destination, pickupDate, honeypot, sms } = req.body;
 
     // Check if honeypot field is filled (spam prevention)
     if (honeypot) {
@@ -32,6 +32,7 @@ app.post('/send-email', (req, res) => {
         Phone: ${phone}
         Vehicle: ${vehicle}
         Origin: ${origin}
+        SMS: ${sms},
         Destination: ${destination}
         Pickup Date: ${pickupDate}`,
     };

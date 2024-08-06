@@ -9,7 +9,7 @@ exports.handler = async (event, context) => {
             throw new Error('No data received');
         }
 
-        const { name, email, phone, vehicle, pickupDate, origin, destination, honeypot } = JSON.parse(event.body);
+        const { name, email, phone, vehicle, pickupDate, origin, destination, sms } = JSON.parse(event.body);
 
         if (honeypot) {
             // Bot detected
@@ -68,6 +68,10 @@ exports.handler = async (event, context) => {
                         <tr>
                             <td style="border: 1px solid #dddddd; padding: 8px;">Destination</td>
                             <td style="border: 1px solid #dddddd; padding: 8px;">${destination}</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid #dddddd; padding: 8px;">SMS</td>
+                            <td style="border: 1px solid #dddddd; padding: 8px;">${sms}</td>
                         </tr>
                     </table>
                     <p style="color: #2e3d49;">Please respond promptly to confirm the pickup details.</p>
