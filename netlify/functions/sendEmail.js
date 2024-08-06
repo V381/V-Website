@@ -9,7 +9,7 @@ exports.handler = async (event, context) => {
             throw new Error('No data received');
         }
 
-        const { name, email, phone, vehicle, pickupDate, origin, destination, sms } = JSON.parse(event.body);
+        const { name, email, phone, vehicle, pickupDate, origin, destination, honeypot, sms } = JSON.parse(event.body);
 
         if (honeypot) {
             // Bot detected
