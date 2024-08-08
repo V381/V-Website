@@ -625,3 +625,123 @@ nav.navbar.shrink .navbar-brand img {
 .footer hr {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
+
+
+
+.glide {
+    width: 100%;
+    position: relative;
+  }
+  
+  .glide__slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .slide-content {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .slide-content img {
+    width: 50%; /* Take just under half of the container's width */
+    height: auto;
+    max-height: 600px; /* Limit the height to make both images the same height */
+    object-fit: cover; /* Ensure the images cover the allocated space */
+    border-radius: 10px; /* Optional: adds rounded corners */
+  }
+  
+  .glide__arrows {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    pointer-events: none; /* Allow click-through to images if needed */
+  }
+  
+  .glide__arrow {
+    background: rgba(0, 0, 0, 0.7); /* Darker semi-transparent background */
+    color: #fff; /* White arrow color */
+    padding: 15px; /* Increase padding for a larger clickable area */
+    border-radius: 50%;
+    border: 2px solid #fff; /* White border for contrast */
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for a 3D effect */
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth transition */
+    pointer-events: all; /* Ensure arrows are clickable */
+  }
+  
+  .glide__arrow--left {
+    left: 10px;
+  }
+  
+  .glide__arrow--right {
+    right: 10px;
+  }
+  
+  /* Responsive Arrow Positioning */
+  @media (max-width: 1024px) {
+    .glide__arrows {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .glide__arrows {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  
+    .glide__arrow {
+      padding: 12px; /* Slightly reduce arrow size for smaller screens */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .glide__arrows {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  
+    .glide__arrow {
+      padding: 10px; /* Further reduce arrow size for mobile devices */
+    }
+  }
+  
+
+  /* Ensuring arrows are centered on image height */
+  .glide__slide {
+    position: relative; /* Ensure arrows are relative to the slide */
+  }
+  
+  .glide__arrows {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+
+  
+  .slider-headline {
+    text-align: center;
+    margin: 40px 0; /* Adds margin to both top and bottom */
+  }
+  
+  .slider-headline h2 {
+    font-size: 2rem; /* Adjust font size as needed */
+    color: #333; /* Adjust color as needed */
+    margin: 0;
+    padding: 0;
+  }
+  
+  .slider-headline h3 {
+    font-size: 1.5rem; /* Adjust font size as needed */
+    color: #666; /* Adjust color as needed */
+    margin: 10px 0 0 0; /* Adds more space between h2 and h3 */
+    padding: 0;
+  }
+  

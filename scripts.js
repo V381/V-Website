@@ -170,3 +170,16 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 })();
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    new Glide('.glide', {
+      type: 'slider', // Removes the looping carousel effect
+      perView: 1,
+      autoplay: 4000, // Autoplay the slides every 4 seconds
+      hoverpause: true, // Pause on hover
+      animationDuration: 1200, // Slower transition for a smoother effect
+      animationTimingFunc: 'ease-in-out', // Ease timing function for a smooth, natural motion
+    }).mount();
+  });
+  
