@@ -648,7 +648,7 @@ nav.navbar.shrink .navbar-brand img {
   .slide-content img {
     width: 50%; /* Take just under half of the container's width */
     height: auto;
-    max-height: 600px; /* Limit the height to make both images the same height */
+    max-height: 700px; /* Limit the height to make both images the same height */
     object-fit: cover; /* Ensure the images cover the allocated space */
     border-radius: 10px; /* Optional: adds rounded corners */
   }

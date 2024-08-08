@@ -174,12 +174,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
 document.addEventListener('DOMContentLoaded', function () {
     new Glide('.glide', {
-      type: 'slider', // Removes the looping carousel effect
+      type: 'slider', 
       perView: 1,
-      autoplay: 4000, // Autoplay the slides every 4 seconds
-      hoverpause: true, // Pause on hover
-      animationDuration: 1200, // Slower transition for a smoother effect
-      animationTimingFunc: 'ease-in-out', // Ease timing function for a smooth, natural motion
+      autoplay: 4000, 
+      hoverpause: true, 
+      animationDuration: 1200,
+      animationTimingFunc: 'ease-in-out',
     }).mount();
   });
   
