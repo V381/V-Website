@@ -324,27 +324,36 @@ nav.navbar .navbar-brand img {
     nav.navbar {
         height: auto;
     }
-    nav.navbar .navbar-brand img {
-        max-height: 90x;
+    nav.navbar {
+        position: relative;
     }
+    .navbar-brand img {
+        position: absolute;
+     }
 }
 
 @media (max-width: 767px) {
     nav.navbar {
         height: auto;
     }
-    nav.navbar .navbar-brand img {
-        max-height: 60px;
+    nav.navbar {
+        position: relative;
     }
+    .navbar-brand img {
+        position: absolute;
+     }
 }
 
 @media (max-width: 575px) {
     nav.navbar {
         height: auto;
     }
-    nav.navbar .navbar-brand img {
-        max-height: 60px;
+    nav.navbar {
+        position: relative;
     }
+    .navbar-brand img {
+        position: absolute;
+     }
 }
 
 
