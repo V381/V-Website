@@ -312,7 +312,7 @@ nav.navbar .navbar-brand img {
 /* Responsive adjustments */
 @media (min-width: 992px) {
     nav.navbar {
-        height: auto;
+        height: 75px;
     }
     nav.navbar .navbar-brand img {
         max-height: 90px; /* Slightly larger on bigger screens */
