@@ -304,7 +304,7 @@ nav.navbar .navbar-brand img {
 
 @media (min-width: 1024px) {
     nav.navbar .navbar-brand img {
-        height: 90px; /* Increased height for larger screens */
+        height: 70px; /* Increased height for larger screens */
     }
 }
 
