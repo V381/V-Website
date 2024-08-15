@@ -318,12 +318,12 @@ main.content {
 }
 
 nav.navbar .navbar-brand img {
-    height: 70px;
+    height: 140px;
     transition: height 0.3s;
 }
 
 nav.navbar.shrink .navbar-brand img {
-    height: 50px;
+    height: 100px;
 }
 
 .request-quote {
