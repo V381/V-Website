@@ -294,6 +294,7 @@ nav.navbar {
     transition: background-color 0.3s, height 0.3s;
     height: auto; /* Allow the navbar to adjust its height */
     padding: 10px 0; /* Add some padding to the navbar */
+    padding-left: 10px;
 }
 
 nav.navbar .navbar-brand {
@@ -311,7 +312,7 @@ nav.navbar .navbar-brand img {
 /* Responsive adjustments */
 @media (min-width: 992px) {
     nav.navbar {
-        height: 75px;
+        height: auto;
     }
     nav.navbar .navbar-brand img {
         max-height: 90px; /* Slightly larger on bigger screens */
@@ -321,7 +322,7 @@ nav.navbar .navbar-brand img {
 
 @media (max-width: 991px) {
     nav.navbar {
-        height: 75px;
+        height: auto;
     }
     nav.navbar .navbar-brand img {
         max-height: 70x;
@@ -330,7 +331,7 @@ nav.navbar .navbar-brand img {
 
 @media (max-width: 767px) {
     nav.navbar {
-        height: 75px;
+        height: auto;
     }
     nav.navbar .navbar-brand img {
         max-height: 70px;
@@ -339,7 +340,7 @@ nav.navbar .navbar-brand img {
 
 @media (max-width: 575px) {
     nav.navbar {
-        height: 75px;
+        height: auto;
     }
     nav.navbar .navbar-brand img {
         max-height: 70px;
