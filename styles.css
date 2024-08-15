@@ -320,20 +320,29 @@ nav.navbar .navbar-brand img {
 }
 
 @media (max-width: 991px) {
+    nav.navbar {
+        height: 75px;
+    }
     nav.navbar .navbar-brand img {
-        max-height: 45px;
+        max-height: 70x;
     }
 }
 
 @media (max-width: 767px) {
+    nav.navbar {
+        height: 75px;
+    }
     nav.navbar .navbar-brand img {
-        max-height: 60px;
+        max-height: 70px;
     }
 }
 
 @media (max-width: 575px) {
+    nav.navbar {
+        height: 75px;
+    }
     nav.navbar .navbar-brand img {
-        max-height: 55px;
+        max-height: 70px;
     }
 }
 
