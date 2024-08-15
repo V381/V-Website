@@ -309,7 +309,7 @@ nav.navbar .navbar-brand {
 
 nav.navbar .navbar-brand img {
     max-height: 65px; /* Increase default max height by 15px */
-    width: auto; /* Maintain aspect ratio */
+    width: 95px; /* Maintain aspect ratio */
     transition: max-height 0.3s;
 }
 
@@ -321,6 +321,7 @@ nav.navbar .navbar-brand img {
     nav.navbar .navbar-brand img {
         max-height: 90px; /* Increase by 15px */
         object-fit: contain;
+        max-width: 145px !important;
     }
 }
 
@@ -334,6 +335,7 @@ nav.navbar .navbar-brand img {
     .navbar-brand img {
         position: absolute;
         max-height: 65px; /* Increase by 15px */
+        max-width: 75px !important;
     }
 }
 
@@ -347,6 +349,7 @@ nav.navbar .navbar-brand img {
     .navbar-brand img {
         position: absolute;
         max-height: 65px; /* Increase by 15px */
+        max-width: 75px !important;
     }
 }
 
@@ -360,6 +363,7 @@ nav.navbar .navbar-brand img {
     .navbar-brand img {
         position: absolute;
         max-height: 65px; /* Increase by 15px */
+        max-width: 70px !important;
     }
 }
 
