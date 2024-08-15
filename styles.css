@@ -292,7 +292,7 @@ main.content {
 nav.navbar {
     background-color: var(--primary-color);
     transition: background-color 0.3s, height 0.3s;
-    height: 100px; /* Set a fixed height for the navbar */
+    height: 75px; /* Set a fixed height for the navbar */
     display: flex;
     align-items: center;
     padding: 0 15px; /* Add some horizontal padding */
@@ -314,13 +314,14 @@ nav.navbar .navbar-brand img {
 /* Responsive adjustments */
 @media (min-width: 1200px) {
     nav.navbar .navbar-brand img {
-        max-height: 100px; /* Larger on extra large screens */
+        max-height: 90px; /* Larger on extra large screens */
+        
     }
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
     nav.navbar .navbar-brand img {
-        max-height: 100px; /* Large screens */
+        max-height: 90px; /* Large screens */
     }
 }
 
@@ -346,7 +347,7 @@ nav.navbar .navbar-brand img {
 nav.navbar.shrink .navbar-brand img {
     height: 80px;
     transition: 0.5 ease;
-}
+    transition: height 0.3s;}
 
 .request-quote {
     background-color: var(--primary-color-darker);
