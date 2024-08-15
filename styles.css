@@ -304,25 +304,25 @@ nav.navbar .navbar-brand img {
 
 @media (min-width: 1024px) {
     nav.navbar .navbar-brand img {
-        height: 70px; /* Increased height for larger screens */
+        height: 100px; /* Increased height for larger screens */
     }
 }
 
 @media (max-width: 768px) {
     nav.navbar .navbar-brand img {
-        height: 60px; /* Adjusted height for smaller screens */
+        height: 40px; /* Adjusted height for smaller screens */
     }
 }
 
 @media (max-width: 576px) {
     nav.navbar .navbar-brand img {
-        height: 50px; /* Adjusted height for even smaller screens */
+        height: 30px; /* Adjusted height for even smaller screens */
     }
 }
 
 @media (max-width: 400px) {
     nav.navbar .navbar-brand img {
-        height: 40px; /* Adjusted height for the smallest screens */
+        height: 20px; /* Adjusted height for the smallest screens */
     }
 }
 
