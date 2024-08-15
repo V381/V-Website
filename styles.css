@@ -292,62 +292,55 @@ main.content {
 nav.navbar {
     background-color: var(--primary-color);
     transition: background-color 0.3s, height 0.3s;
-    height: 75px; /* Set a fixed height for the navbar */
-    display: flex;
-    align-items: center;
-    padding: 0 15px; /* Add some horizontal padding */
+    height: auto; /* Allow the navbar to adjust its height */
+    padding: 10px 0; /* Add some padding to the navbar */
 }
 
 nav.navbar .navbar-brand {
     display: flex;
     align-items: center;
     height: 100%;
-    padding: 0; /* Remove default padding */
 }
 
 nav.navbar .navbar-brand img {
-    height: 100px;
-    max-height: 50px; /* Default max height for smaller screens */
+    max-height: 50px; /* Set a default max height */
     width: auto; /* Maintain aspect ratio */
-    transition: height 0.3s;}
+    transition: max-height 0.3s;
+}
 
 /* Responsive adjustments */
-@media (min-width: 1200px) {
+@media (min-width: 992px) {
+    nav.navbar {
+        height: 75px;
+    }
     nav.navbar .navbar-brand img {
-        max-height: 90px; /* Larger on extra large screens */
-        
+        max-height: 90px; /* Slightly larger on bigger screens */
+        object-fit: contain;
     }
 }
 
-@media (min-width: 992px) and (max-width: 1199px) {
+@media (max-width: 991px) {
     nav.navbar .navbar-brand img {
-        max-height: 90px; /* Large screens */
-    }
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-    nav.navbar .navbar-brand img {
-        max-height: 80px; /* Medium screens */
+        max-height: 45px;
     }
 }
 
 @media (max-width: 767px) {
     nav.navbar .navbar-brand img {
-        max-height: 75px; /* Small screens */
+        max-height: 60px;
     }
 }
 
 @media (max-width: 575px) {
     nav.navbar .navbar-brand img {
-        max-height: 60px; /* Extra small screens */
+        max-height: 55px;
     }
 }
 
 
 nav.navbar.shrink .navbar-brand img {
     height: 80px;
-    transition: 0.5 ease;
-    transition: height 0.3s;}
+}
 
 .request-quote {
     background-color: var(--primary-color-darker);
