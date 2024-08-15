@@ -289,6 +289,10 @@ main.content {
     justify-content: space-between;
 }
 
+.navbar-toggler {
+    margin-right: 15px;
+}
+
 nav.navbar {
     background-color: var(--primary-color);
     transition: background-color 0.3s, height 0.3s;
