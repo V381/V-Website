@@ -306,7 +306,7 @@ nav.navbar .navbar-brand {
 }
 
 nav.navbar .navbar-brand img {
-    height: 95px;
+    height: 100px;
     max-height: 50px; /* Default max height for smaller screens */
     width: auto; /* Maintain aspect ratio */
     transition: height 0.3s;}
@@ -320,7 +320,7 @@ nav.navbar .navbar-brand img {
 
 @media (min-width: 992px) and (max-width: 1199px) {
     nav.navbar .navbar-brand img {
-        max-height: 95px; /* Large screens */
+        max-height: 100px; /* Large screens */
     }
 }
 
