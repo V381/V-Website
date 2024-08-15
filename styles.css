@@ -290,45 +290,62 @@ main.content {
 }
 
 nav.navbar {
-    height: 75px; /* Maintain the height of the navbar */
+    background-color: var(--primary-color);
+    transition: background-color 0.3s, height 0.3s;
+    height: 100px; /* Set a fixed height for the navbar */
     display: flex;
-    align-items: center; /* Vertically center the content within the navbar */
+    align-items: center;
+    padding: 0 15px; /* Add some horizontal padding */
+}
+
+nav.navbar .navbar-brand {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0; /* Remove default padding */
 }
 
 nav.navbar .navbar-brand img {
-    max-width: 100%;
-    height: 100px; /* Default height for the logo */
-    transition: height 0.3s;
-    object-fit: contain;
-}
+    height: 95px;
+    max-height: 50px; /* Default max height for smaller screens */
+    width: auto; /* Maintain aspect ratio */
+    transition: height 0.3s;}
 
-@media (min-width: 1024px) {
+/* Responsive adjustments */
+@media (min-width: 1200px) {
     nav.navbar .navbar-brand img {
-        height: 100px; /* Increased height for larger screens */
+        max-height: 100px; /* Larger on extra large screens */
     }
 }
 
-@media (max-width: 768px) {
+@media (min-width: 992px) and (max-width: 1199px) {
     nav.navbar .navbar-brand img {
-        height: 40px; /* Adjusted height for smaller screens */
+        max-height: 95px; /* Large screens */
     }
 }
 
-@media (max-width: 576px) {
+@media (min-width: 768px) and (max-width: 991px) {
     nav.navbar .navbar-brand img {
-        height: 30px; /* Adjusted height for even smaller screens */
+        max-height: 80px; /* Medium screens */
     }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 767px) {
     nav.navbar .navbar-brand img {
-        height: 20px; /* Adjusted height for the smallest screens */
+        max-height: 75px; /* Small screens */
+    }
+}
+
+@media (max-width: 575px) {
+    nav.navbar .navbar-brand img {
+        max-height: 60px; /* Extra small screens */
     }
 }
 
 
 nav.navbar.shrink .navbar-brand img {
     height: 80px;
+    transition: 0.5 ease;
 }
 
 .request-quote {
