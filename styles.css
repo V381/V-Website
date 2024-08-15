@@ -300,6 +300,8 @@ main.content {
     .logo {
         width: 50%;
         height: 125px; /* Adjusted height for smaller screens */
+        object-fit: contain;
+
     }
 }
 
@@ -307,6 +309,8 @@ main.content {
     .logo {
         width: 75%;
         height: 100px; /* Adjusted height for even smaller screens */
+        object-fit: contain;
+
     }
 }
 
@@ -314,6 +318,8 @@ main.content {
     .logo {
         width: 100%;
         height: 75px; /* Adjusted height for the smallest screens */
+        object-fit: contain;
+
     }
 }
 
