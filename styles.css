@@ -796,6 +796,9 @@ nav.navbar.shrink .navbar-brand img {
   
 
   .img-fluid {
-    height: 110px;
-    width: 110px;
+    width: 140px;
+    background: transparent;
+    position: relative;
+    margin-top: 0;
+    left: -15px;
   }
