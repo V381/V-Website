@@ -794,3 +794,8 @@ nav.navbar.shrink .navbar-brand img {
     padding: 0;
   }
   
+
+  .img-fluid {
+    height: 110px;
+    width: 110px;
+  }
