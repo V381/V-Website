@@ -1,10 +1,26 @@
 document.addEventListener('DOMContentLoaded', function() {
     AOS.init();
+    
 
     // Smooth scrolling for links
     document.querySelectorAll('a.nav-link').forEach(function(anchor) {
         anchor.addEventListener('click', function(event) {
-            if (this.hash !== "") {
+            // Check if this is the MON-SAT link
+            if (this.innerHTML.includes('MON-SAT')) {
+                event.preventDefault();
+                const footer = document.querySelector('.footer');
+                const navbarHeight = document.querySelector('.navbar').offsetHeight;
+
+                // Collapse the navbar after click on mobile
+                document.querySelector('.navbar-collapse').classList.remove('show');
+
+                // Smooth scroll to footer
+                window.scroll({
+                    top: footer.offsetTop - navbarHeight,
+                    behavior: 'smooth'
+                });
+            } else if (this.hash !== "") {
+                // Original code for other nav links
                 event.preventDefault();
                 const hash = this.hash;
                 const targetElement = document.querySelector(hash);

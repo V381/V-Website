@@ -847,3 +847,7 @@ nav.navbar.shrink .navbar-brand img {
 .icon-size {
     font-size: 2rem;
 }
+
+.cursor-pointer:hover {
+    cursor: pointer;
+}
