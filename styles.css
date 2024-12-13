@@ -855,10 +855,12 @@ nav.navbar.shrink .navbar-brand img {
 }
 
 .link-color {
-    color: rgb(173, 179, 230) !important;
+  color: #007bff !important;
+  text-decoration: none;
+  background-color: transparent;
 }
 
 .margin-top {
-    margin-top: 40px;
-    margin-bottom: 40px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
