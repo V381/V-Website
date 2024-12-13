@@ -659,6 +659,8 @@ nav.navbar.shrink .navbar-brand img {
 
 .footer {
     background-color: var(--primary-color);
+    padding-top: 32px;
+    padding-bottom: 40px;
 }
 
 .footer a {
@@ -850,4 +852,13 @@ nav.navbar.shrink .navbar-brand img {
 
 .cursor-pointer:hover {
     cursor: pointer;
+}
+
+.link-color {
+    color: rgb(173, 179, 230) !important;
+}
+
+.margin-top {
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
