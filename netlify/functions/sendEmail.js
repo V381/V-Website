@@ -16,7 +16,7 @@ exports.handler = async (event, context) => {
             throw new Error('Bot detected');
         }
 
-        if (!name || !email || !phone || !vehicle || !pickupDate || !origin || !destination) {
+        if (!name || !email || !vehicle || !pickupDate || !origin || !destination) {
             throw new Error('Missing fields in request data');
         }
 
