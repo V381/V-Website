@@ -939,3 +939,8 @@ nav.navbar.shrink .navbar-brand img {
         transform: rotate(360deg);
     }
 }
+
+
+.font-size-23 {
+    font-size: 23px !important;
+}
