@@ -1,6 +1,46 @@
 document.addEventListener('DOMContentLoaded', function() {
     AOS.init();
+
+    const isFirstVisit = !sessionStorage.getItem('hasVisited');
+    const loader = document.querySelector('.loader-wrapper');
     
+    if (isFirstVisit) {
+        // Show loader on first visit
+        loader.style.display = 'flex';
+        
+        // Hide loader and show content when everything is loaded
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                document.body.classList.add('loaded');
+                loader.classList.add('fade-out');
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                }, 300);
+            }, 100);
+            
+            // Set the flag in sessionStorage
+            sessionStorage.setItem('hasVisited', 'true');
+        });
+    } else {
+        // Hide loader and show content immediately for subsequent visits
+        loader.style.display = 'none';
+        // Small timeout to ensure smooth transition
+        setTimeout(() => {
+            document.body.classList.add('loaded');
+        }, 50);
+    }
+    
+    window.addEventListener('load', function() {
+        document.body.classList.add('loaded');
+        const loader = document.querySelector('.loader-wrapper');
+        loader.classList.add('fade-out');
+        setTimeout(() => {
+            loader.style.display = 'none';
+        }, 500); // Match this with the CSS transition duration
+    });
+
+    // Prevent showing unstyled content during page load
+    document.body.style.visibility = 'visible';
 
     // Smooth scrolling for links
     document.querySelectorAll('a.nav-link').forEach(function(anchor) {
