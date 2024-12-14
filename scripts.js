@@ -156,23 +156,144 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 (() => {
-    // Form validation
-    document.getElementById('vehicle-pickup-form').addEventListener('submit', function(event) {
-        event.preventDefault();
+    // Form validation helper functions
+    function validateName(name) {
+        const nameRegex = /^[a-zA-Z\s'-]{2,50}$/;
+        return {
+            isValid: nameRegex.test(name.trim()),
+            message: 'Please enter a valid name (2-50 characters, letters only)'
+        };
+    }
 
-        const pickupDateInput = document.getElementById('pickup-date');
-        const dateError = document.getElementById('date-error');
-        const selectedDate = new Date(pickupDateInput.value);
+    function validateEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return {
+            isValid: emailRegex.test(email.trim()),
+            message: 'Please enter a valid email address'
+        };
+    }
+
+    function validatePhone(phone) {
+        // Allows formats: (123) 456-7890, 123-456-7890, 1234567890
+        const phoneRegex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+        return {
+            isValid: phoneRegex.test(phone.trim()),
+            message: 'Please enter a valid phone number'
+        };
+    }
+
+    function validateVehicle(vehicle) {
+        return {
+            isValid: vehicle.trim().length >= 3,
+            message: 'Please enter valid vehicle details (minimum 3 characters)'
+        };
+    }
+
+    function validateLocation(location) {
+        return {
+            isValid: location.trim().length >= 3,
+            message: 'Please enter a valid location (minimum 3 characters)'
+        };
+    }
+
+    function validateDate(date) {
+        const selectedDate = new Date(date);
         const today = new Date();
-        today.setHours(0, 0, 0, 0); // Set to midnight to compare only date part
+        today.setHours(0, 0, 0, 0);
+        
+        return {
+            isValid: selectedDate >= today,
+            message: 'Please select a future date'
+        };
+    }
 
-        if (selectedDate < today) {
-            dateError.style.display = 'block';
+    // Create error message element
+    function createErrorElement(fieldId, message) {
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'error-message text-danger mt-1';
+        errorDiv.id = `${fieldId}-error`;
+        errorDiv.textContent = message;
+        return errorDiv;
+    }
+
+    // Show error message
+    function showError(field, message) {
+        let errorDiv = document.getElementById(`${field.id}-error`);
+        if (!errorDiv) {
+            errorDiv = createErrorElement(field.id, message);
+            field.parentNode.appendChild(errorDiv);
+        }
+        errorDiv.textContent = message;
+        field.classList.add('is-invalid');
+    }
+
+    // Clear all error messages
+    function clearAllErrors() {
+        const errorMessages = document.querySelectorAll('.error-message');
+        errorMessages.forEach(error => error.remove());
+        
+        const invalidFields = document.querySelectorAll('.is-invalid');
+        invalidFields.forEach(field => field.classList.remove('is-invalid'));
+    }
+    
+    // Validate individual field
+    function validateField(field) {
+        let validation = { isValid: true, message: '' };
+        
+        switch(field.id) {
+            case 'name':
+                validation = validateName(field.value);
+                break;
+            case 'email':
+                validation = validateEmail(field.value);
+                break;
+            case 'phone':
+                validation = validatePhone(field.value);
+                break;
+            case 'vehicle':
+                validation = validateVehicle(field.value);
+                break;
+            case 'origin':
+            case 'destination':
+                validation = validateLocation(field.value);
+                break;
+            case 'pickup-date':
+                validation = validateDate(field.value);
+                break;
+        }
+        
+        if (!validation.isValid) {
+            showError(field, validation.message);
+            return false;
+        }
+        return true;
+    }
+
+    const form = document.getElementById('vehicle-pickup-form');
+
+    // Form submit handler
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        // Clear any existing error messages first
+        clearAllErrors();
+        
+        // Validate all fields
+        const fields = ['name', 'email', 'phone', 'vehicle', 'origin', 'destination', 'pickup-date'];
+        let isValid = true;
+        
+        fields.forEach(fieldId => {
+            const field = document.getElementById(fieldId);
+            if (!validateField(field)) {
+                isValid = false;
+            }
+        });
+        
+        if (!isValid) {
             return;
-        } else {
-            dateError.style.display = 'none';
         }
 
+        // If validation passes, proceed with form submission
         const submitButton = event.target.querySelector('button[type="submit"]');
         submitButton.disabled = true;
         submitButton.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Sending...';
@@ -180,9 +301,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const formData = new FormData(event.target);
         
         // Manually add the checkbox value to the form data
-        const checkbox = document.getElementById('agreement');
-        formData.append('sms', checkbox.checked ? 'on' : 'off'); 
-
+        const agreement = document.getElementById('agreement');
+        formData.append('sms', agreement.checked ? 'on' : 'off');
+        
         const formObject = Object.fromEntries(formData.entries());
 
         fetch('/send-email', {
@@ -201,7 +322,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     icon: 'success',
                     confirmButtonText: 'OK'
                 });
-                document.getElementById('vehicle-pickup-form').reset();
+                form.reset();
+                clearAllErrors(); // Clear any remaining error messages after successful submission
             } else {
                 Swal.fire({
                     title: 'Error!',
@@ -210,8 +332,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     confirmButtonText: 'OK'
                 });
             }
-            submitButton.disabled = false;
-            submitButton.innerHTML = 'Submit';
         })
         .catch(error => {
             console.error('Error:', error);
@@ -221,6 +341,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 icon: 'error',
                 confirmButtonText: 'OK'
             });
+        })
+        .finally(() => {
             submitButton.disabled = false;
             submitButton.innerHTML = 'Submit';
         });
