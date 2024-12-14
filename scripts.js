@@ -156,6 +156,8 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 (() => {
+    let formSubmitAttempted = false;
+
     // Form validation helper functions
     function validateName(name) {
         const nameRegex = /^[a-zA-Z\s'-]{2,50}$/;
@@ -173,26 +175,17 @@ document.addEventListener('DOMContentLoaded', function() {
         };
     }
 
-    function validatePhone(phone) {
-        // Allows formats: (123) 456-7890, 123-456-7890, 1234567890
-        const phoneRegex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
-        return {
-            isValid: phoneRegex.test(phone.trim()),
-            message: 'Please enter a valid phone number'
-        };
-    }
-
     function validateVehicle(vehicle) {
         return {
-            isValid: vehicle.trim().length >= 3,
-            message: 'Please enter valid vehicle details (minimum 3 characters)'
+            isValid: vehicle.trim().length >= 2,
+            message: 'Please enter valid vehicle details (minimum 2 characters)'
         };
     }
 
     function validateLocation(location) {
         return {
-            isValid: location.trim().length >= 3,
-            message: 'Please enter a valid location (minimum 3 characters)'
+            isValid: location.trim().length >= 2,
+            message: 'Please enter a valid location (minimum 2 characters)'
         };
     }
 
@@ -227,6 +220,15 @@ document.addEventListener('DOMContentLoaded', function() {
         field.classList.add('is-invalid');
     }
 
+    // Clear error message for a specific field
+    function clearError(field) {
+        const errorDiv = document.getElementById(`${field.id}-error`);
+        if (errorDiv) {
+            errorDiv.remove();
+        }
+        field.classList.remove('is-invalid');
+    }
+
     // Clear all error messages
     function clearAllErrors() {
         const errorMessages = document.querySelectorAll('.error-message');
@@ -247,9 +249,6 @@ document.addEventListener('DOMContentLoaded', function() {
             case 'email':
                 validation = validateEmail(field.value);
                 break;
-            case 'phone':
-                validation = validatePhone(field.value);
-                break;
             case 'vehicle':
                 validation = validateVehicle(field.value);
                 break;
@@ -266,20 +265,32 @@ document.addEventListener('DOMContentLoaded', function() {
             showError(field, validation.message);
             return false;
         }
+        clearError(field);
         return true;
     }
 
     const form = document.getElementById('vehicle-pickup-form');
 
+    // Add real-time validation for fields after first submit attempt
+    ['name', 'email', 'vehicle', 'origin', 'destination', 'pickup-date'].forEach(fieldId => {
+        const field = document.getElementById(fieldId);
+        field.addEventListener('input', function() {
+            if (formSubmitAttempted) {
+                validateField(this);
+            }
+        });
+    });
+
     // Form submit handler
     form.addEventListener('submit', function(event) {
         event.preventDefault();
+        formSubmitAttempted = true;
         
         // Clear any existing error messages first
         clearAllErrors();
         
-        // Validate all fields
-        const fields = ['name', 'email', 'phone', 'vehicle', 'origin', 'destination', 'pickup-date'];
+        // Validate all fields except phone
+        const fields = ['name', 'email', 'vehicle', 'origin', 'destination', 'pickup-date'];
         let isValid = true;
         
         fields.forEach(fieldId => {
@@ -323,7 +334,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     confirmButtonText: 'OK'
                 });
                 form.reset();
-                clearAllErrors(); // Clear any remaining error messages after successful submission
+                clearAllErrors();
+                formSubmitAttempted = false;
             } else {
                 Swal.fire({
                     title: 'Error!',
