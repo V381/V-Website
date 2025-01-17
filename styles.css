@@ -293,7 +293,7 @@ main.content {
 }
 
 .testimonials .stars {
-    color: var(--primary-color-dark);
+    color: gold;
 }
 .logo-container {
     display: flex;
@@ -944,3 +944,5 @@ nav.navbar.shrink .navbar-brand img {
 .font-size-23 {
     font-size: 23px !important;
 }
+
+
