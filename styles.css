@@ -959,7 +959,9 @@ nav.navbar.shrink .navbar-brand img {
     z-index: 9999;
     opacity: 1;
     transition: opacity 0.3s ease-out;
+    visibility: visible;
 }
+
 
 .loader-video {
     max-width: 200px; /* Adjust size as needed */

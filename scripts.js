@@ -363,23 +363,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
 (() => {
     document.addEventListener('DOMContentLoaded', function() {
-        const isFirstVisit = !sessionStorage.getItem('hasVisited');
+        // Hide everything except loader initially
+        document.body.style.visibility = 'hidden';
         const loader = document.querySelector('.loader-wrapper');
-        const loaderVideo = document.querySelector('.loader-video');
+        if (loader) {
+            loader.style.visibility = 'visible';
+        }
+    
+        const isFirstVisit = !sessionStorage.getItem('hasVisited');
         
         if (isFirstVisit) {
             loader.style.display = 'flex';
             
-            // Ensure video is loaded and playing
-            if (loaderVideo) {
-                loaderVideo.play().catch(function(error) {
-                    console.log("Video playback failed:", error);
-                    // Show fallback loader if video fails
-                    document.querySelector('.fallback-loader').style.display = 'block';
-                });
-            }
-            
             window.addEventListener('load', function() {
+                // Show body content
+                document.body.style.visibility = 'visible';
+                
                 setTimeout(() => {
                     document.body.classList.add('loaded');
                     loader.classList.add('fade-out');
@@ -392,6 +391,8 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         } else {
             loader.style.display = 'none';
+            // Show body content immediately for returning visitors
+            document.body.style.visibility = 'visible';
             setTimeout(() => {
                 document.body.classList.add('loaded');
             }, 50);
