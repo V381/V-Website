@@ -1,3 +1,8 @@
+window.addEventListener('beforeunload', function() {
+    document.body.style.visibility = 'hidden';
+    document.querySelector('.loader-wrapper').style.visibility = 'visible';
+});
+
 document.addEventListener('DOMContentLoaded', function() {
     AOS.init();
 
@@ -361,44 +366,33 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 })();
 
-(() => {
-    document.addEventListener('DOMContentLoaded', function() {
-        // Hide everything except loader initially
-        document.body.style.visibility = 'hidden';
-        const loader = document.querySelector('.loader-wrapper');
-        if (loader) {
-            loader.style.visibility = 'visible';
-        }
+
+document.addEventListener('DOMContentLoaded', function() {
+    const loader = document.querySelector('.loader-wrapper');
+    const isFirstVisit = !sessionStorage.getItem('hasVisited');
     
-        const isFirstVisit = !sessionStorage.getItem('hasVisited');
-        
-        if (isFirstVisit) {
-            loader.style.display = 'flex';
-            
-            window.addEventListener('load', function() {
-                // Show body content
-                document.body.style.visibility = 'visible';
-                
-                setTimeout(() => {
-                    document.body.classList.add('loaded');
-                    loader.classList.add('fade-out');
-                    setTimeout(() => {
-                        loader.style.display = 'none';
-                    }, 300);
-                }, 100);
-                
-                sessionStorage.setItem('hasVisited', 'true');
-            });
-        } else {
-            loader.style.display = 'none';
-            // Show body content immediately for returning visitors
+    if (isFirstVisit) {
+        window.addEventListener('load', function() {
             document.body.style.visibility = 'visible';
+            
             setTimeout(() => {
                 document.body.classList.add('loaded');
-            }, 50);
-        }
-    });
-})();
+                loader.classList.add('fade-out');
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                }, 300);
+            }, 100);
+            
+            sessionStorage.setItem('hasVisited', 'true');
+        });
+    } else {
+        loader.style.display = 'none';
+        document.body.style.visibility = 'visible';
+        setTimeout(() => {
+            document.body.classList.add('loaded');
+        }, 50);
+    }
+});
 
 document.addEventListener('DOMContentLoaded', function () {
     new Glide('.glide', {
