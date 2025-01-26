@@ -361,6 +361,43 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 })();
 
+(() => {
+    document.addEventListener('DOMContentLoaded', function() {
+        const isFirstVisit = !sessionStorage.getItem('hasVisited');
+        const loader = document.querySelector('.loader-wrapper');
+        const loaderVideo = document.querySelector('.loader-video');
+        
+        if (isFirstVisit) {
+            loader.style.display = 'flex';
+            
+            // Ensure video is loaded and playing
+            if (loaderVideo) {
+                loaderVideo.play().catch(function(error) {
+                    console.log("Video playback failed:", error);
+                    // Show fallback loader if video fails
+                    document.querySelector('.fallback-loader').style.display = 'block';
+                });
+            }
+            
+            window.addEventListener('load', function() {
+                setTimeout(() => {
+                    document.body.classList.add('loaded');
+                    loader.classList.add('fade-out');
+                    setTimeout(() => {
+                        loader.style.display = 'none';
+                    }, 300);
+                }, 100);
+                
+                sessionStorage.setItem('hasVisited', 'true');
+            });
+        } else {
+            loader.style.display = 'none';
+            setTimeout(() => {
+                document.body.classList.add('loaded');
+            }, 50);
+        }
+    });
+})();
 
 document.addEventListener('DOMContentLoaded', function () {
     new Glide('.glide', {

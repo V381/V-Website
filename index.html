@@ -24,7 +24,13 @@
 
 <body>
     <div class="loader-wrapper">
-        <span class="loader"></span>
+        <video class="loader-video" autoplay loop muted playsinline>
+            <source src="assets/loader.webm" type="video/webm">
+            <!-- Fallback for browsers that don't support WebM -->
+            <div class="fallback-loader">
+                <span class="loader"></span>
+            </div>
+        </video>
     </div>
     <header class="sticky-top">
         <nav class="navbar navbar-expand-lg navbar-dark">
