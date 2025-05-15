@@ -975,3 +975,238 @@ nav.navbar.shrink .navbar-brand img {
 .loader-video:not([src]) + .fallback-loader {
     display: block;
 }
+
+
+.blog-container {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.blog-post {
+    margin-bottom: 40px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 30px;
+}
+
+.blog-post:last-child {
+    border-bottom: none;
+}
+
+.blog-post-title {
+    color: var(--primary-color-dark);
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.blog-post-meta {
+    color: #6c757d;
+    margin-bottom: 15px;
+}
+
+.blog-post-img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.post-tag {
+    display: inline-block;
+    background-color: #f0f0f0;
+    padding: 3px 10px;
+    border-radius: 15px;
+    margin-right: 5px;
+    font-size: 0.85rem;
+    color: var(--primary-color);
+}
+
+.featured-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+}
+
+.about-us-section {
+    text-align: left;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.about-us-section h2 {
+    font-size: 2.2rem;
+    color: var(--primary-color-dark);
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.about-us-section h3 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.about-us-section h4 {
+    font-size: 1.4rem;
+    color: var(--primary-color-dark);
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.about-us-section p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.blog-cta {
+    background-color: var(--primary-color);
+    padding: 40px 0;
+    text-align: center;
+    color: white;
+    margin-top: 30px;
+    border-radius: 10px;
+}
+
+.blog-cta h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.blog-cta .btn {
+    font-size: 1.2rem;
+    padding: 10px 30px;
+    border-radius: 30px;
+    background-color: white;
+    color: var(--primary-color);
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.blog-cta .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.blog-meta {
+    color: #aaa;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 15px;
+}
+
+.blog-header-img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 25px;
+}
+
+.blog-tag {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 3px 12px;
+    border-radius: 20px;
+    margin-right: 5px;
+    font-size: 0.8rem;
+    color: #fff;
+}
+
+.blog-section {
+    margin-bottom: 30px;
+}
+
+.blog-section h2, .blog-section h3, .blog-section h4 {
+    color: #fff;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.blog-section h2 {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.blog-section h3 {
+    font-size: 1.7rem;
+    font-weight: 600;
+}
+
+.blog-section h4 {
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.blog-section p {
+    color: #fff;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.cta-section {
+    background-color: var(--primary-color-darker);
+    padding: 40px;
+    border-radius: 10px;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    text-align: center;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.cta-section h3 {
+    color: white;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.cta-section p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+}
+
+.share-btn {
+    display: inline-block;
+    padding: 8px 15px;
+    margin-right: 5px;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.share-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.facebook {
+    background-color: #3b5998;
+}
+
+.twitter {
+    background-color: #1da1f2;
+}
+
+.linkedin {
+    background-color: #0077b5;
+}
+
+.email {
+    background-color: #666;
+}
