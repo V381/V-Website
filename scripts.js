@@ -1,7 +1,4 @@
-window.addEventListener('beforeunload', function() {
-    document.body.style.visibility = 'hidden';
-    document.querySelector('.loader-wrapper').style.visibility = 'visible';
-});
+
 
 document.addEventListener('DOMContentLoaded', function() {
     AOS.init();
