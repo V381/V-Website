@@ -183,16 +183,32 @@ main.content {
 }
 
 .steps {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 800px;
-    width: 100%;
-    margin: 20px auto;
-    text-align: left;
-    overflow-x: hidden;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 20px;
+    padding: 60px 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
+.steps h3 {
+    color: var(--primary-color-dark);
+    font-weight: 700;
+    margin-bottom: 3rem;
+}
+
+.step-timeline-horizontal {
+    position: relative;
+}
+.step-timeline-horizontal::before {
+    content: '';
+    position: absolute;
+    top: 60px;
+    left: 10%;
+    right: 10%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color) 0%, var(--primary-color-dark) 100%);
+    border-radius: 2px;
+    z-index: 1;
+}
 
 .step {
     position: relative;
@@ -204,6 +220,319 @@ main.content {
 .step h4, .step p {
     margin-left: 0; /* Remove left margin */
     font-size: 1.2rem; /* Increase font size for larger text */
+}
+
+.step-item-horizontal {
+    position: relative;
+    z-index: 2;
+}
+
+.step-card {
+    background: white;
+    padding: 30px 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    height: 100%;
+    border: 2px solid transparent;
+}
+
+.step-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    border-color: var(--primary-color);
+}
+
+/* Step Image Containers */
+.step-image-container {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid var(--primary-color);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.step-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.step-card:hover .step-image {
+    transform: scale(1.1);
+}
+
+.step-number {
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    background: #ffd700;
+    color: var(--primary-color-dark);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border: 2px solid white;
+}
+
+.step-title {
+    color: var(--primary-color-dark);
+    font-weight: 600;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.step-description {
+    color: #6c757d;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* Mobile Vertical Timeline with connecting lines */
+.timeline-vertical {
+    position: relative;
+}
+
+.timeline-vertical::before {
+    content: '';
+    position: absolute;
+    left: 50px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, var(--primary-color) 0%, var(--primary-color-dark) 100%);
+    border-radius: 2px;
+}
+
+.timeline-item-mobile {
+    position: relative;
+}
+
+.step-image-mobile-container {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
+}
+
+.step-image-mobile {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.step-number-mobile {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #ffd700;
+    color: var(--primary-color-dark);
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    border: 2px solid white;
+}
+
+.step-content-mobile {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid var(--primary-color);
+}
+
+.step-content-mobile h6 {
+    color: var(--primary-color-dark);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.step-content-mobile p {
+    color: #6c757d;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991px) {
+    .steps {
+        padding: 40px 15px;
+    }
+    
+    .timeline-vertical::before {
+        left: 40px;
+    }
+    
+    .step-image-mobile-container {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+@media (max-width: 576px) {
+    .step-image-mobile-container {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .step-number-mobile {
+        width: 20px;
+        height: 20px;
+        font-size: 0.7rem;
+        top: -6px;
+        right: -6px;
+    }
+    
+    .step-content-mobile {
+        padding: 15px;
+    }
+    
+    .timeline-vertical::before {
+        left: 30px;
+    }
+}
+
+/* Animation on scroll */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.step-card, .timeline-item-mobile {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Large Step Numbers Inside Cards */
+.step-number-large {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+    color: var(--primary-color-dark);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+    z-index: 3;
+    border: 3px solid white;
+    transition: all 0.3s ease;
+}
+
+.step-card:hover .step-number-large {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+}
+
+/* Mobile Large Step Numbers */
+.step-number-mobile-large {
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+    color: var(--primary-color-dark);
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: bold;
+    box-shadow: 0 3px 10px rgba(255, 215, 0, 0.3);
+    z-index: 3;
+    border: 2px solid white;
+}
+
+/* Adjust card positioning for desktop */
+.step-card {
+    position: relative;
+    padding-top: 40px; /* Add extra space at top for the large number */
+}
+
+/* Adjust mobile content positioning */
+.step-content-mobile {
+    position: relative;
+    padding-top: 25px; /* Add space for the mobile large number */
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+    .step-number-large {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+        top: 10px;
+        left: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .step-number-large {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+        top: 8px;
+        left: 12px;
+    }
+    
+    .step-number-mobile-large {
+        width: 30px;
+        height: 30px;
+        font-size: 0.9rem;
+        top: -8px;
+        right: 8px;
+    }
+    
+    .step-content-mobile {
+        padding-top: 20px;
+    }
+}
+
+/* Animation for step numbers */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.step-number-large, .step-number-mobile-large {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* Pause animation on hover */
+.step-card:hover .step-number-large,
+.timeline-item-mobile:hover .step-number-mobile-large {
+    animation-play-state: paused;
 }
 
 
@@ -440,6 +769,18 @@ nav.navbar.shrink .navbar-brand img {
 .request-quote h3, .contact h3, .contact p {
     margin-bottom: 0.5rem;
 }
+
+.step-card:nth-child(1) { animation-delay: 0s; }
+.step-card:nth-child(2) { animation-delay: 0.1s; }
+.step-card:nth-child(3) { animation-delay: 0.2s; }
+.step-card:nth-child(4) { animation-delay: 0.3s; }
+.step-card:nth-child(5) { animation-delay: 0.4s; }
+
+.timeline-item-mobile:nth-child(1) { animation-delay: 0s; }
+.timeline-item-mobile:nth-child(2) { animation-delay: 0.1s; }
+.timeline-item-mobile:nth-child(3) { animation-delay: 0.2s; }
+.timeline-item-mobile:nth-child(4) { animation-delay: 0.3s; }
+.timeline-item-mobile:nth-child(5) { animation-delay: 0.4s; }
 
 .step-circle {
     position: absolute;
