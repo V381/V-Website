@@ -617,6 +617,7 @@ main.content {
 .stats .stat-number {
     font-size: 3rem;
     font-weight: bold;
+    padding-left: 5px;
     margin-bottom: 10px;
 }
 
