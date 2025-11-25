@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dealership Transport | MB Superb Logistics</title>
+    <meta name="description" content="Book dealership vehicle transport with MB Superb Logistics. Share pickup, delivery, and vehicle details to schedule your shipment today.">
+    <meta name="keywords" content="dealership auto transport, car shipping, vehicle logistics, pickup and delivery scheduling, MB Superb Logistics">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mbsuperblogistics.com/pages/dealership.html">
+    <link rel="preload" href="../styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="../styles.css"></noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-5e2ESR8Ycmos6g3gAKr1Jvwye8sW4U1u/cAKulfVJnkakCcMqhOudbtPnvJ+nbv7" crossorigin="anonymous">
+    <link rel="preload" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"></noscript>
+    <link rel="icon" type="image/x-icon" href="../assets/favicon-32x32.png">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+    <div class="loader-wrapper">
+        <video class="loader-video" autoplay loop muted playsinline>
+            <source src="../assets/loader.webm" type="video/webm">
+            <!-- Fallback for browsers that don't support WebM -->
+            <div class="fallback-loader">
+                <span class="loader"></span>
+            </div>
+        </video>
+    </div>
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="../index.html">
+                <img src="../assets/logo.png" alt="MBLogistics Logo" class="logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav ml-auto align-items-lg-center">
+                    <li class="nav-item">
+                        <a class="btn btn-primary nav-home-btn" href="../index.html">Return to Home</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="content d-flex flex-column align-items-center justify-content-center text-center">
+        
+        <div class="background-image-container">
+            <div class="animated-background-image"></div>
+            <div class="floating-overlay"></div>
+        </div>
+        <div class="wave-container">
+            <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                 viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                <defs>
+                    <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                </defs>
+                <g class="parallax">
+                    <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7)" />
+                    <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+                    <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+                    <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+                </g>
+            </svg>
+        </div>
+        
+        <section class="container dealership-wrapper" id="dealership-app">
+            <div class="dealership-hero mx-auto text-center mb-4">
+                <h1 class="display-4 mb-3 main-title">MB Superb Logistics</h1>
+                <h2 class="main-subtitle">DEALERSHIP PORTAL</h2>
+                <p class="lead mb-0" style="background: rgba(0, 0, 0, 0.5); padding: 10px; border-radius: 5px; color: white;">Complete the steps to submit pickup and delivery details for your dealership transport request.</p>
+            </div>
+
+            <div class="stepper-shell mb-4 form-section">
+                <div class="stepper-progress" aria-hidden="true">
+                    <div class="stepper-progress-bar" :style="{ width: progressPercent + '%' }"></div>
+                </div>
+                <div class="stepper-steps">
+                    <div v-for="(step, index) in steps" :key="step.title" class="stepper-step" :class="{ active: currentStep === index }">
+                        <div class="stepper-index">{{ index + 1 }}</div>
+                        <div class="stepper-label">{{ step.title }}</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dealership-card form-section p-4 p-md-5">
+                <form @submit.prevent="submitRequest" novalidate>
+                    <div v-if="currentStep === 0">
+                        <h2 class="step-title mb-3" style="color: white;">Basic Details</h2>
+                        <p class="mb-4" style="color: rgba(255, 255, 255, 0.8);">Tell us who you are and what vehicle we are moving.</p>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="companyName"><i class="fas fa-building mr-2"></i>Company Name</label>
+                                <input type="text" class="form-control" id="companyName" v-model="formData.companyName" required @input="clearError('companyName')" :class="{ 'is-invalid': errors.companyName }">
+                                <div class="invalid-feedback" v-if="errors.companyName">{{ errors.companyName }}</div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="customerName"><i class="fas fa-user mr-2"></i>Customer Name</label>
+                                <input type="text" class="form-control" id="customerName" v-model="formData.customerName" required @input="clearError('customerName')" :class="{ 'is-invalid': errors.customerName }">
+                                <div class="invalid-feedback" v-if="errors.customerName">{{ errors.customerName }}</div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="customerPhone"><i class="fas fa-phone mr-2"></i>Customer Phone</label>
+                                <input type="tel" class="form-control" id="customerPhone" v-model="formData.customerPhone" required @input="clearError('customerPhone')" :class="{ 'is-invalid': errors.customerPhone }">
+                                <div class="invalid-feedback" v-if="errors.customerPhone">{{ errors.customerPhone }}</div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="email"><i class="fas fa-envelope mr-2"></i>Email</label>
+                                <input type="email" class="form-control" id="email" v-model="formData.email" required @input="clearError('email')" :class="{ 'is-invalid': errors.email }">
+                                <div class="invalid-feedback" v-if="errors.email">{{ errors.email }}</div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label for="vehicleYear"><i class="fas fa-calendar-alt mr-2"></i>Vehicle Year</label>
+                                <input type="number" min="1900" max="2100" class="form-control" id="vehicleYear" v-model="formData.vehicleYear" required @input="clearError('vehicleYear')" :class="{ 'is-invalid': errors.vehicleYear }">
+                                <div class="invalid-feedback" v-if="errors.vehicleYear">{{ errors.vehicleYear }}</div>
+                            </div>
+                            <div class="form-group col-md-8">
+                                <label for="vehicleMakeModel"><i class="fas fa-car-side mr-2"></i>Vehicle Make &amp; Model</label>
+                                <input type="text" class="form-control" id="vehicleMakeModel" v-model="formData.vehicleMakeModel" required @input="clearError('vehicleMakeModel')" :class="{ 'is-invalid': errors.vehicleMakeModel }">
+                                <div class="invalid-feedback" v-if="errors.vehicleMakeModel">{{ errors.vehicleMakeModel }}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div v-else-if="currentStep === 1">
+                        <h2 class="step-title mb-3" style="color: white;">Pickup Details</h2>
+                        <p class="mb-4" style="color: rgba(255, 255, 255, 0.8);">Where should we pick up the vehicle and who is the contact?</p>
+                        <div class="form-group">
+                            <label for="pickupAddress"><i class="fas fa-map-marker-alt mr-2"></i>Address</label>
+                            <input type="text" class="form-control" id="pickupAddress" v-model="formData.pickupAddress" required @input="clearError('pickupAddress')" :class="{ 'is-invalid': errors.pickupAddress }">
+                            <div class="invalid-feedback" v-if="errors.pickupAddress">{{ errors.pickupAddress }}</div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-5">
+                                <label for="pickupCity"><i class="fas fa-city mr-2"></i>City</label>
+                                <input type="text" class="form-control" id="pickupCity" v-model="formData.pickupCity" required @input="clearError('pickupCity')" :class="{ 'is-invalid': errors.pickupCity }">
+                                <div class="invalid-feedback" v-if="errors.pickupCity">{{ errors.pickupCity }}</div>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="pickupState"><i class="fas fa-flag-usa mr-2"></i>State</label>
+                                <input type="text" class="form-control" id="pickupState" v-model="formData.pickupState" required @input="clearError('pickupState')" :class="{ 'is-invalid': errors.pickupState }">
+                                <div class="invalid-feedback" v-if="errors.pickupState">{{ errors.pickupState }}</div>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="pickupZip"><i class="fas fa-mail-bulk mr-2"></i>ZIP</label>
+                                <input type="text" class="form-control" id="pickupZip" v-model="formData.pickupZip" required @input="clearError('pickupZip')" :class="{ 'is-invalid': errors.pickupZip }">
+                                <div class="invalid-feedback" v-if="errors.pickupZip">{{ errors.pickupZip }}</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="pickupContact"><i class="fas fa-id-badge mr-2"></i>Name Contact</label>
+                            <input type="text" class="form-control" id="pickupContact" v-model="formData.pickupContact" required @input="clearError('pickupContact')" :class="{ 'is-invalid': errors.pickupContact }">
+                            <div class="invalid-feedback" v-if="errors.pickupContact">{{ errors.pickupContact }}</div>
+                        </div>
+                    </div>
+
+                    <div v-else-if="currentStep === 2">
+                        <h2 class="step-title mb-3" style="color: white;">Delivery Location</h2>
+                        <p class="mb-4" style="color: rgba(255, 255, 255, 0.8);">Where do we deliver and who will receive the vehicle?</p>
+                        <div class="form-group">
+                            <label for="deliveryAddress"><i class="fas fa-map-pin mr-2"></i>Address</label>
+                            <input type="text" class="form-control" id="deliveryAddress" v-model="formData.deliveryAddress" required @input="clearError('deliveryAddress')" :class="{ 'is-invalid': errors.deliveryAddress }">
+                            <div class="invalid-feedback" v-if="errors.deliveryAddress">{{ errors.deliveryAddress }}</div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-5">
+                                <label for="deliveryCity"><i class="fas fa-city mr-2"></i>City</label>
+                                <input type="text" class="form-control" id="deliveryCity" v-model="formData.deliveryCity" required @input="clearError('deliveryCity')" :class="{ 'is-invalid': errors.deliveryCity }">
+                                <div class="invalid-feedback" v-if="errors.deliveryCity">{{ errors.deliveryCity }}</div>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="deliveryState"><i class="fas fa-flag mr-2"></i>State</label>
+                                <input type="text" class="form-control" id="deliveryState" v-model="formData.deliveryState" required @input="clearError('deliveryState')" :class="{ 'is-invalid': errors.deliveryState }">
+                                <div class="invalid-feedback" v-if="errors.deliveryState">{{ errors.deliveryState }}</div>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="deliveryZip"><i class="fas fa-mail-bulk mr-2"></i>ZIP</label>
+                                <input type="text" class="form-control" id="deliveryZip" v-model="formData.deliveryZip" required @input="clearError('deliveryZip')" :class="{ 'is-invalid': errors.deliveryZip }">
+                                <div class="invalid-feedback" v-if="errors.deliveryZip">{{ errors.deliveryZip }}</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="deliveryContact"><i class="fas fa-id-card mr-2"></i>Name Contact</label>
+                            <input type="text" class="form-control" id="deliveryContact" v-model="formData.deliveryContact" required @input="clearError('deliveryContact')" :class="{ 'is-invalid': errors.deliveryContact }">
+                            <div class="invalid-feedback" v-if="errors.deliveryContact">{{ errors.deliveryContact }}</div>
+                        </div>
+                    </div>
+
+                    <div v-else-if="currentStep === 3">
+                        <h2 class="step-title mb-3" style="color: white;">Pickup Date</h2>
+                        <p class="mb-4" style="color: rgba(255, 255, 255, 0.8);">Choose the preferred pickup date.</p>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="pickupDate"><i class="fas fa-calendar-check mr-2"></i>Pickup Date</label>
+                                <input type="date" class="form-control" id="pickupDate" v-model="formData.pickupDate" :min="today" required @input="clearError('pickupDate')" :class="{ 'is-invalid': errors.pickupDate }">
+                                <div class="invalid-feedback" v-if="errors.pickupDate">{{ errors.pickupDate }}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-navigation d-flex flex-column flex-md-row justify-content-between align-items-center mt-4"
+                         :class="{ 'final-step-nav': currentStep === steps.length - 1, 'start-step-nav': currentStep === 0 }">
+                        <button v-if="currentStep > 0" type="button" class="btn btn-outline-primary mb-2 mb-md-0" @click="prevStep">Previous</button>
+                        <button v-if="currentStep < steps.length - 1" type="button" class="btn btn-primary" @click="nextStep" :disabled="submitting">Next Step</button>
+                        <button v-else type="submit" class="btn btn-primary" :disabled="submitting">
+                            <span v-if="submitting" class="spinner-border spinner-border-sm mr-2" role="status" aria-hidden="true"></span>
+                            {{ submitting ? 'Submitting...' : 'Submit Request' }}
+                        </button>
+                    </div>
+                </form>
+
+                <div v-if="message" class="alert mt-4" :class="messageType === 'success' ? 'alert-success' : 'alert-danger'">
+                    {{ message }}
+                </div>
+            </div>
+            <div class="form-section text-left mt-5">
+                <h3 class="mb-4 text-white">Why Choose Us?</h3>
+                <h4 class="text-white">Experienced and Reliable</h4>
+                <p class="text-muted-80">Each member of our team has nearly ten years of hands-on experience in auto transportation. We handle your vehicle with care and professionalism, whether it is a short move or a cross-country shipment.</p>
+                <h4 class="text-white">Comprehensive Vehicle Transport Services</h4>
+                <p class="text-muted-80">We transport cars, trucks, and SUVs across the country, providing tailored solutions to meet your specific needs. Whether you're relocating, buying or selling a vehicle, or need fleet transport, we've got you covered.</p>
+                <h4 class="text-white">Honest and Transparent Pricing</h4>
+                <p class="text-muted-80">We believe in clarity. We provide clear, upfront pricing with no hidden fees so you know exactly what to expect when you book with us.</p>
+                <h4 class="text-white">Strict Carrier Selection</h4>
+                <p class="text-muted-80">We only work with fully insured carriers that have at least three years of experience. Our trusted partners maintain the highest standards of safety and insurance coverage.</p>
+                <h4 class="text-white">Direct Communication &amp; Real-Time Updates</h4>
+                <p class="text-muted-80">We share driver contact details so you can receive real-time updates during your vehicle's journey. Transportation and communication are key to a smooth experience.</p>
+                <h4 class="text-white">Safety &amp; Insurance</h4>
+                <p class="text-muted-80">Every carrier we work with holds robust insurance. In the unlikely event of an issue, our team will guide you through the process of submitting a claim.</p>
+                <h4 class="text-white">Why We Stand Out</h4>
+                <p class="text-muted-80">We prioritize direct contact and personalized service. When you choose MB Superb Logistics, you're a valued customer, not just another shipment.</p>
+            </div>
+        </section>
+    </main>
+
+    <section class="mt-6 text-white footer">
+        <div class="container">
+            <div class="row justify-content-between">
+                <!-- Contact Column -->
+                <div class="col-12 col-md-4 mb-8 mb-md-0 d-flex flex-column align-items-center text-center">
+                    <h5 class="mb-3 font-weight-bold">Contact Us</h5>
+                    <p class="mb-2"><i class="fas fa-map-marker-alt me-2 mr-2 "></i>2323 South Voss Road
+                        <br>Houston, TX 77057 #670</p>
+                    <p class="mb-2"><i class="fas fa-envelope me-2 mr-2"></i>service@mbsuperblogistics.com</p>
+                    <p class="mb-2"><i class="fas fa-phone me-2 mr-2"></i>832-284-9810</p>
+                    <p class="mb-2"><i class="fas fa-phone me-2 mr-2"></i>832-922-7077</p>
+                </div>
+
+                <!-- Business Hours Column -->
+                <div class="col-12 col-md-4 mb-4 mb-md-0 d-flex flex-column align-items-center text-center">
+                    <h5 class="mb-3 font-weight-bold">Business Hours</h5>
+                    <p class="mb-2">Hours of Operation</p>
+                    <p class="mb-2">Monday - Friday</p>
+                    <p class="mb-1">8:00AM - 6:00PM CST</p>
+                    <p class="mb-2">Saturday</p>
+                    <p class="mb-2">8:00AM - 4:00PM CST</p>
+                    <p class="mb-2">Sunday - Closed</p>
+                    <a href="../pages/privacy.html" class="mb-2 link-color font-size-23">Privacy Policy</a>
+                    <a href="../pages/terms-and-conditions.html" class="mb-2 link-color font-size-23">Terms and Conditions</a>
+                    <a href="../pages/sms-terms-and-conditions.html" class="mb-2 link-color font-size-23">SMS Terms and Conditions</a>
+                </div>
+
+                <!-- Testimonials Column -->
+                <div class="col-12 col-md-4 d-flex flex-column align-items-center text-center">
+                    <h5 class="mb-3 font-weight-bold">Licensed and Insured</h5>
+                    <h5 class="mb-3">USDOT #4262895</h5>
+                    <h5 class="mb-3">MC #1654272</h5>
+                </div>
+            </div>
+
+            <hr class="bg-white margin-top">
+            
+            <div class="text-center">
+                <p class="mb-0">&copy; 2025 MB Superb Logistics. All rights reserved.</p>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" defer></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" defer></script>
+    <script src="dealership.js" defer></script>
+</body>
+
+</html>
