@@ -137,20 +137,15 @@ document.addEventListener('DOMContentLoaded', () => {
                         body: JSON.stringify(this.formData)
                     });
 
-                    const contentType = response.headers.get('content-type') || '';
-                    const isJson = contentType.includes('application/json');
                     const raw = await response.text();
-
                     let data = {};
-                    if (isJson && raw) {
-                        try {
-                            data = JSON.parse(raw);
-                        } catch (parseError) {
-                            console.error('Failed to parse JSON response', parseError);
-                        }
+                    try {
+                        data = raw ? JSON.parse(raw) : {};
+                    } catch (parseError) {
+                        console.error('Failed to parse JSON response', parseError);
                     }
 
-                    const success = response.ok && data && data.success;
+                    const success = response.ok && (data.success !== false);
                     if (!success) {
                         const message = (data && data.message) || raw || `HTTP ${response.status}: ${response.statusText}`;
                         throw new Error(message);
@@ -158,16 +153,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     this.messageType = 'success';
                     this.message = (data && data.message) || 'Request submitted successfully. Our team will reach out shortly.';
-                    if (typeof Swal !== 'undefined') {
-                        Swal.fire('Submitted', this.message, 'success');
+                    if (typeof Swal !== 'undefined' && Swal.fire) {
+                        Swal.fire('Submitted', this.message, 'success').catch(() => {});
                     }
                     this.resetForm();
                 } catch (error) {
                     console.error(error);
                     this.messageType = 'danger';
                     this.message = error.message || 'There was a problem submitting your request.';
-                    if (typeof Swal !== 'undefined') {
-                        Swal.fire('Error', this.message, 'error');
+                    if (typeof Swal !== 'undefined' && Swal.fire) {
+                        Swal.fire('Error', this.message, 'error').catch(() => {});
                     }
                 } finally {
                     this.submitting = false;
