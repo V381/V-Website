@@ -141,6 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const isJson = contentType.includes('application/json');
                     const raw = await response.text();
                     let data = {};
+                    
                     if (isJson && raw) {
                         try {
                             data = JSON.parse(raw);
@@ -149,23 +150,25 @@ document.addEventListener('DOMContentLoaded', () => {
                         }
                     }
 
-                    if (!response.ok || !data.success) {
-                        const message = (data && data.message) || raw || 'Unable to submit request.';
-                        throw new Error(message);
+                    // Check if response is successful
+                    if (response.ok && data.success) {
+                        this.messageType = 'success';
+                        this.message = data.message || 'Request submitted successfully. Our team will reach out shortly.';
+                        
+                        // Fixed SWAL call with proper syntax
+                        if (typeof Swal !== 'undefined') {
+                            Swal.fire({
+                                title: 'Success!',
+                                text: this.message,
+                                icon: 'success'
+                            });
+                        }
+                        this.resetForm();
+                    } else {
+                        // Handle error case
+                        const errorMessage = (data && data.message) || raw || 'Unable to submit request.';
+                        throw new Error(errorMessage);
                     }
-
-                    this.messageType = 'success';
-                    this.message = 'Request submitted successfully. Our team will reach out shortly.';
-                    
-                    // Fixed SWAL call with proper syntax
-                    if (typeof Swal !== 'undefined') {
-                        Swal.fire({
-                            title: 'Success!',
-                            text: 'We have received your request.',
-                            icon: 'success'
-                        });
-                    }
-                    this.resetForm();
                 } catch (error) {
                     console.error(error);
                     this.messageType = 'danger';
