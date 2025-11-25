@@ -141,17 +141,22 @@ document.addEventListener('DOMContentLoaded', () => {
                     const isJson = contentType.includes('application/json');
                     const raw = await response.text();
                     let data = {};
-                    
-                    if (isJson && raw) {
+
+                    // Always try to parse JSON so success responses without JSON headers still work
+                    if (raw) {
                         try {
                             data = JSON.parse(raw);
                         } catch (parseError) {
-                            console.error('Failed to parse JSON response', parseError);
+                            if (isJson) {
+                                console.error('Failed to parse JSON response', parseError);
+                            }
                         }
                     }
 
-                    // Check if response is successful
-                    if (response.ok && data.success) {
+                    // Treat any 2xx response as success unless the payload explicitly sets success to false
+                    const wasSuccessful = response.ok && (data.success !== false);
+
+                    if (wasSuccessful) {
                         this.messageType = 'success';
                         this.message = data.message || 'Request submitted successfully. Our team will reach out shortly.';
                         
@@ -160,7 +165,9 @@ document.addEventListener('DOMContentLoaded', () => {
                             Swal.fire({
                                 title: 'Success!',
                                 text: this.message,
-                                icon: 'success'
+                                icon: 'success',
+                                iconColor: '#28a745',
+                                confirmButtonColor: '#28a745'
                             });
                         }
                         this.resetForm();
