@@ -137,32 +137,47 @@ document.addEventListener('DOMContentLoaded', () => {
                         body: JSON.stringify(this.formData)
                     });
 
+                    const contentType = response.headers.get('content-type') || '';
+                    const isJson = contentType.includes('application/json');
                     const raw = await response.text();
                     let data = {};
-                    try {
-                        data = raw ? JSON.parse(raw) : {};
-                    } catch (parseError) {
-                        console.error('Failed to parse JSON response', parseError);
+                    if (isJson && raw) {
+                        try {
+                            data = JSON.parse(raw);
+                        } catch (parseError) {
+                            console.error('Failed to parse JSON response', parseError);
+                        }
                     }
 
-                    const success = response.ok && (data.success !== false);
-                    if (!success) {
-                        const message = (data && data.message) || raw || `HTTP ${response.status}: ${response.statusText}`;
+                    if (!response.ok || !data.success) {
+                        const message = (data && data.message) || raw || 'Unable to submit request.';
                         throw new Error(message);
                     }
 
                     this.messageType = 'success';
-                    this.message = (data && data.message) || 'Request submitted successfully. Our team will reach out shortly.';
-                    if (typeof Swal !== 'undefined' && Swal.fire) {
-                        Swal.fire('Submitted', this.message, 'success').catch(() => {});
+                    this.message = 'Request submitted successfully. Our team will reach out shortly.';
+                    
+                    // Fixed SWAL call with proper syntax
+                    if (typeof Swal !== 'undefined') {
+                        Swal.fire({
+                            title: 'Success!',
+                            text: 'We have received your request.',
+                            icon: 'success'
+                        });
                     }
                     this.resetForm();
                 } catch (error) {
                     console.error(error);
                     this.messageType = 'danger';
                     this.message = error.message || 'There was a problem submitting your request.';
-                    if (typeof Swal !== 'undefined' && Swal.fire) {
-                        Swal.fire('Error', this.message, 'error').catch(() => {});
+                    
+                    // Fixed SWAL call with proper syntax
+                    if (typeof Swal !== 'undefined') {
+                        Swal.fire({
+                            title: 'Error',
+                            text: this.message,
+                            icon: 'error'
+                        });
                     }
                 } finally {
                     this.submitting = false;
