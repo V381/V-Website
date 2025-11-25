@@ -150,15 +150,16 @@ document.addEventListener('DOMContentLoaded', () => {
                         }
                     }
 
-                    if (!response.ok || !data.success) {
+                    const success = response.ok && data && data.success;
+                    if (!success) {
                         const message = (data && data.message) || raw || `HTTP ${response.status}: ${response.statusText}`;
                         throw new Error(message);
                     }
 
                     this.messageType = 'success';
-                    this.message = 'Request submitted successfully. Our team will reach out shortly.';
+                    this.message = (data && data.message) || 'Request submitted successfully. Our team will reach out shortly.';
                     if (typeof Swal !== 'undefined') {
-                        Swal.fire('Submitted', 'We have received your request.', 'success');
+                        Swal.fire('Submitted', this.message, 'success');
                     }
                     this.resetForm();
                 } catch (error) {
