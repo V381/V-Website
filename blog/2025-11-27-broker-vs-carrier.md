@@ -20,26 +20,21 @@ We:
 * handle communication
 * ensure pickup and delivery are on time support you throughout the process
 * **Benefits of using a broker:**
-* ```
-  Access to thousands of carriers
-  ```
 
-  Better pricing from market competition
+```
+Access to thousands of carriers
+```
 
-  Faster dispatch
-
-  Better communication
-
-  Wider coverage nationwide
-
-  You don’t have to search for drivers manually
+* Better pricing from market competition
+* Faster dispatch
+* Better communication
+* Wider coverage nationwide
+* You don’t have to search for drivers manually
 * **2. Auto Transport Carrier**
 * A carrier owns the truck and ships your vehicle.
 * **Benefits of using a carrier:**
 * You deal directly with the driver
-
-  Sometimes cheaper on short-distance routes
-
+* Sometimes cheaper on short-distance routes
 * **Which one is better for you?**
 * For 90% of customers: 
 
