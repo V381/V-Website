@@ -30,10 +30,8 @@ We don’t pass you around. You’ll have a single dedicated shipping advisor gu
 * West Coast
 * Midwest
 * Texas
-
-  Florida
-
-Cross-country routes
+* Florida
+* Cross-country routes
 
 ### **✔ Clear Communication. Zero Stress.**
 
