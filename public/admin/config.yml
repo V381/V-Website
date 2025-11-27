@@ -1,0 +1,27 @@
+backend:
+  name: git-gateway
+  branch: main  # ili "master" ako koristiš master
+
+media_folder: "public/assets/blog" # gde će slike
+public_folder: "/assets/blog"
+
+collections:
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Author", name: "author", widget: "string", default: "The MB Superb Team"}
+      - {label: "Tags", name: "tags", widget: "list", default: ["Auto Transport"]}
+      - {label: "Featured Image", name: "cover", widget: "image", required: false}
+      - {label: "Excerpt", name: "excerpt", widget: "text"}
+      - {label: "Body", name: "body", widget: "markdown"}
+```
+
+## 4. Kreiraj `blog` folder u root-u projekta
+```
+blog/
+  └── (ovde će biti markdown fajlovi)
