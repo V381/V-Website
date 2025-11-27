@@ -6,9 +6,6 @@ tags:
   - Auto Transport
 excerpt: Why Choose MB Superb Logistics?
 ---
-
-
-
 ## **Why Choose MB Superb Logistics?**
 
 At MB Superb Logistics, we believe auto transport should be simple, transparent, and handled with the highest level of professionalism. Whether you're shipping your daily driver, a luxury vehicle, a classic, or a family car across the country, you deserve a service that treats your vehicle with respect.
@@ -27,26 +24,16 @@ We don’t pass you around. You’ll have a single dedicated shipping advisor gu
 
 ### **✔ Fast Dispatch & Reliable Carriers**
 
-Our network includes carriers with proven reliability in every major U.S. lane:\
-\
-East Coast
+* Our network includes carriers with proven reliability in every major U.S. lane:\
+  \
+  East Coast
+* West Coast
+* Midwest
+* Texas
 
-
-West Coast
-
-
-Midwest
-
-
-Florida
-
-
-Texas
-
+  Florida
 
 Cross-country routes
-
-
 
 ### **✔ Clear Communication. Zero Stress.**
 
