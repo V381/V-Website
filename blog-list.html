@@ -189,6 +189,7 @@
             // Estimate read time
             const wordCount = (post.content || excerpt).split(' ').length;
             const readTime = Math.max(1, Math.ceil(wordCount / 200));
+            const shortDate = formatShortDate(post.date);
             
             // Check if featured (first 2 posts)
             const isFeatured = post.featured || index < 2;
@@ -196,10 +197,15 @@
                         card.innerHTML = `
                 ${coverImage}
                 <div class="blog-card-top">
-                    <div class="blog-read-time">
-                        <i class="far fa-clock mr-1"></i>${readTime} min read
+                    <div class="top-badge-group">
+                        <div class="blog-read-time">
+                            <i class="far fa-clock mr-1"></i>${readTime} min read
+                        </div>
+                        ${isFeatured ? '<div class=\"blog-featured-badge\">Featured</div>' : ''}
                     </div>
-                    ${isFeatured ? '<div class=\"blog-featured-badge\">Featured</div>' : ''}
+                    <div class="blog-card-date-badge">
+                        <i class="far fa-calendar-alt"></i>${shortDate}
+                    </div>
                 </div>
                 <div class="blog-card-body">
                     <a href="blog-post.html?slug=${post.slug}" style="text-decoration: none;">
@@ -258,6 +264,18 @@
                     });
                 }
             });
+        }
+    }
+
+    // Short month/day date (e.g., Nov 27)
+    function formatShortDate(dateString) {
+        try {
+            const date = new Date(dateString);
+            if (isNaN(date.getTime())) return '—';
+            return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+        } catch (error) {
+            console.error('Error formatting short date:', error);
+            return '—';
         }
     }
     
