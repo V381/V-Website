@@ -15,6 +15,15 @@
     <!-- Marked.js za markdown parsing -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <meta name="description" content="Read articles and insights from MB Superb Logistics about auto transport and vehicle shipping.">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="MB Superb Logistics Blog">
+    <meta property="og:description" content="Read articles and insights from MB Superb Logistics about auto transport and vehicle shipping.">
+    <meta property="og:image" content="assets/logo.png">
+    <meta property="og:url" content="">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="MB Superb Logistics Blog">
+    <meta name="twitter:description" content="Read articles and insights from MB Superb Logistics about auto transport and vehicle shipping.">
+    <meta name="twitter:image" content="assets/logo.png">
     <style>
         /* Align styling with blog/blog.html */
         .blog-section {
@@ -380,6 +389,51 @@
             
             const contentDiv = document.getElementById('blog-post-content');
             const mainTitle = document.querySelector('.main-title');
+            const headEl = document.head;
+
+            function setMeta(attr, key, value) {
+                if (!value) return;
+                let tag = headEl.querySelector(`[${attr}="${key}"]`);
+                if (!tag) {
+                    tag = document.createElement('meta');
+                    tag.setAttribute(attr, key);
+                    headEl.appendChild(tag);
+                }
+                tag.setAttribute('content', value);
+            }
+
+            function setStructuredData(postData, descriptionText) {
+                const existing = document.getElementById('ld-blog-post');
+                if (existing) existing.remove();
+
+                const ldData = {
+                    "@context": "https://schema.org",
+                    "@type": "BlogPosting",
+                    "headline": postData.title,
+                    "description": descriptionText,
+                    "datePublished": postData.date,
+                    "author": {
+                        "@type": "Person",
+                        "name": postData.author || "The MB Superb Team"
+                    },
+                    "image": postData.cover || window.location.origin + "/assets/logo.png",
+                    "mainEntityOfPage": window.location.href,
+                    "publisher": {
+                        "@type": "Organization",
+                        "name": "MB Superb Logistics",
+                        "logo": {
+                            "@type": "ImageObject",
+                            "url": window.location.origin + "/assets/logo.png"
+                        }
+                    }
+                };
+
+                const script = document.createElement('script');
+                script.type = 'application/ld+json';
+                script.id = 'ld-blog-post';
+                script.textContent = JSON.stringify(ldData);
+                headEl.appendChild(script);
+            }
             
             if (!slug) {
                 contentDiv.innerHTML = '<p class="text-center">No blog post specified. <a href="blog-list.html">Return to blog list</a></p>';
@@ -402,6 +456,17 @@
             if (mainTitle) {
                 mainTitle.textContent = post.title;
             }
+
+            const description = post.excerpt || (post.body ? post.body.replace(/[#>*_`~\-]|(!?\[[^\]]*\]\([^\)]*\))/g, '').trim().slice(0, 160) : '');
+            setMeta('name', 'description', description || 'Read articles and insights from MB Superb Logistics about auto transport and vehicle shipping.');
+            setMeta('property', 'og:title', post.title);
+            setMeta('property', 'og:description', description);
+            setMeta('property', 'og:image', post.cover || window.location.origin + '/assets/logo.png');
+            setMeta('property', 'og:url', window.location.href);
+            setMeta('name', 'twitter:title', post.title);
+            setMeta('name', 'twitter:description', description);
+            setMeta('name', 'twitter:image', post.cover || window.location.origin + '/assets/logo.png');
+            setStructuredData(post, description);
             
             // Parse markdown u HTML
             const htmlContent = marked.parse(post.body);

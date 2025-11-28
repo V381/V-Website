@@ -21,6 +21,9 @@
             margin-left: auto;
             margin-right: auto;
         }
+        .content .container {
+            max-width: 1650px;
+        }
         .blog-list-intro p {
             font-size: 18px;
             color: rgba(245, 247, 251, 0.8);
@@ -121,6 +124,17 @@
         .blog-section {
             min-height: 400px;
             text-align: left;
+        }
+        /* Grid layout for posts */
+        .blog-section .row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 32px;
+        }
+        .blog-section .row > [class*='col-'] {
+            width: 100%;
+            max-width: none;
+            padding: 0;
         }
         .no-posts-message {
             text-align: center;

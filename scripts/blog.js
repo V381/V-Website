@@ -1,10 +1,8 @@
-// scripts/blog.js
-// Funkcija koja fetch-uje sve markdown fajlove iz blog foldera
 
-// ⚠️ ZAMENI OVE VREDNOSTI SA SVOJIM GITHUB INFO:
-const GITHUB_USERNAME = 'V381';  // Zameni sa svojim username-om
-const REPO_NAME = 'V-Website';              // Zameni sa imenom repoa
-const BRANCH = 'main';                           // Ili 'master' ako koristiš master
+
+const GITHUB_USERNAME = 'V381';  
+const REPO_NAME = 'V-Website';              
+const BRANCH = 'main';                          
 
 async function fetchBlogPosts() {
     try {
