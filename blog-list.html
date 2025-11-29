@@ -162,10 +162,89 @@
         container.innerHTML = '';
         container.classList.remove('loading');
         
+        // Latest post spotlight
+        const latestPost = posts[0];
+        const remainingPosts = posts.slice(1);
+
+        if (latestPost) {
+            const latestSection = document.createElement('div');
+            latestSection.className = 'latest-post-section';
+            latestSection.setAttribute('data-aos', 'fade-up');
+
+            const latestHeading = document.createElement('h2');
+            latestHeading.className = 'latest-post-title';
+            latestHeading.textContent = 'Latest Post';
+            latestSection.appendChild(latestHeading);
+
+            const latestCardWrapper = document.createElement('div');
+            latestCardWrapper.className = 'latest-post-card';
+
+            const latestCover = latestPost.cover ?
+                `<img src="${latestPost.cover}" alt="${latestPost.title}" loading="lazy">` :
+                '<img src="assets/logo.png" alt="MB Superb Logistics" style="object-fit: contain; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px;" loading="lazy">';
+
+            const latestTags = latestPost.tags ?
+                latestPost.tags.split(',').map(tag =>
+                    `<span class="blog-tag">${tag.trim()}</span>`
+                ).join('') : '';
+
+            const latestExcerpt = latestPost.excerpt || 'Click to read more about this comprehensive article covering various aspects of auto transport, logistics, and industry insights that will help you make informed decisions.';
+
+            const latestWordCount = (latestPost.content || latestExcerpt).split(' ').length;
+            const latestReadTime = Math.max(1, Math.ceil(latestWordCount / 200));
+            const latestShortDate = formatShortDate(latestPost.date);
+            const latestIsFeatured = true;
+
+            latestCardWrapper.innerHTML = `
+                <div class="blog-card latest">
+                    ${latestCover}
+                    <div class="blog-card-top">
+                        <div class="top-badge-group">
+                            <div class="blog-read-time">
+                                <i class="far fa-clock mr-1"></i>${latestReadTime} min read
+                            </div>
+                            ${latestIsFeatured ? '<div class="blog-featured-badge">Featured</div>' : ''}
+                        </div>
+                        <div class="blog-card-date-badge">
+                            <i class="far fa-calendar-alt"></i>${latestShortDate}
+                        </div>
+                    </div>
+                    <div class="blog-card-body">
+                        <a href="blog-post.html?slug=${latestPost.slug}" style="text-decoration: none;">
+                            <h2 class="blog-card-title">${latestPost.title}</h2>
+                        </a>
+                        <div class="blog-card-meta">
+                            <div class="blog-card-meta-item">
+                                <i class="far fa-calendar-alt"></i> ${formatDate(latestPost.date)}
+                            </div>
+                            <div class="blog-card-meta-item">
+                                <i class="far fa-user"></i> ${latestPost.author || 'The MB Superb Team'}
+                            </div>
+                        </div>
+                        ${latestTags ? `<div class="blog-card-tags">${latestTags}</div>` : ''}
+                        <p class="blog-card-excerpt">${latestExcerpt}</p>
+                        <div class="blog-card-actions">
+                            <a href="blog-post.html?slug=${latestPost.slug}" class="btn btn-read-more">
+                                <i class="fas fa-book-open"></i>
+                                <span>Read article</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                            <button class="btn btn-secondary-action" onclick="sharePost('${latestPost.slug}', '${latestPost.title}')">
+                                <i class="fas fa-share-alt mr-2"></i>Share
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            latestSection.appendChild(latestCardWrapper);
+            container.appendChild(latestSection);
+        }
+
         const row = document.createElement('div');
         row.className = 'row';
         
-        posts.forEach((post, index) => {
+        remainingPosts.forEach((post, index) => {
             const col = document.createElement('div');
             col.className = 'col-12 col-md-6 col-lg-3';
             col.setAttribute('data-aos', 'fade-up');
@@ -192,7 +271,7 @@
             const shortDate = formatShortDate(post.date);
             
             // Check if featured (first 2 posts)
-            const isFeatured = post.featured || index < 2;
+            const isFeatured = false;
             
                         card.innerHTML = `
                 ${coverImage}
