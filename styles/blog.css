@@ -1054,3 +1054,7 @@
         min-height: 620px;
     }
 }
+
+main.content {
+    overflow-x: hidden !important;
+}
