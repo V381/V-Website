@@ -177,6 +177,30 @@ main.content {
     background-color: var(--primary-color-dark);
 }
 
+/* Gold button overrides to match logo */
+.btn-primary,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary:visited {
+    background: linear-gradient(135deg, #ffd54d 0%, #f4b700 100%) !important;
+    border: 1px solid #f4b700 !important;
+    color: #1c2833 !important;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary:hover,
+.btn-primary:active:hover {
+    background: linear-gradient(135deg, #ffe06e 0%, #f7c300 100%) !important;
+    color: #1c2833 !important;
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.25);
+}
+
+.btn-primary:disabled,
+.btn-primary.disabled {
+    background: linear-gradient(135deg, #ffd54d 0%, #f4b700 100%) !important;
+    opacity: 0.7;
+}
+
 .why-us {
     background-color: var(--primary-color);
     overflow-x: hidden;
