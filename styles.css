@@ -1320,6 +1320,36 @@ nav.navbar.shrink .navbar-brand img {
     filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));
 }
 
+.footer-bbb-link {
+    color: #4ea3ff;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.footer-bbb-link:hover {
+    color: #77bbff;
+    text-decoration: underline;
+}
+
+.footer-review-link {
+    color: #4ea3ff;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.footer-review-link:hover {
+    color: #77bbff;
+    text-decoration: underline;
+}
+
+.section-divider {
+    width: 100%;
+    max-width: 720px;
+    margin: 20px auto;
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
 
 
 .glide {
