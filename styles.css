@@ -1307,6 +1307,19 @@ nav.navbar.shrink .navbar-brand img {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+.footer-bbb {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 12px 0 8px;
+}
+
+.footer-bbb img {
+    max-width: 200px;
+    height: auto;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));
+}
+
 
 
 .glide {
