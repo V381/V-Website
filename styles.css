@@ -401,11 +401,11 @@ main.content {
     .steps {
         padding: 40px 15px;
     }
-    
+
     .timeline-vertical::before {
         left: 40px;
     }
-    
+
     .step-image-mobile-container {
         width: 70px;
         height: 70px;
@@ -417,7 +417,7 @@ main.content {
         width: 60px;
         height: 60px;
     }
-    
+
     .step-number-mobile {
         width: 20px;
         height: 20px;
@@ -425,11 +425,11 @@ main.content {
         top: -6px;
         right: -6px;
     }
-    
+
     .step-content-mobile {
         padding: 15px;
     }
-    
+
     .timeline-vertical::before {
         left: 30px;
     }
@@ -737,7 +737,7 @@ main.content {
         top: 8px;
         left: 12px;
     }
-    
+
     .step-number-mobile-large {
         width: 30px;
         height: 30px;
@@ -745,7 +745,7 @@ main.content {
         top: -8px;
         right: 8px;
     }
-    
+
     .step-content-mobile {
         padding-top: 20px;
     }
@@ -1351,24 +1351,23 @@ nav.navbar.shrink .navbar-brand img {
 }
 
 
-
 .glide {
     width: 100%;
     position: relative;
   }
-  
+
   .glide__slide {
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  
+
   .slide-content {
     display: flex;
     width: 100%;
     justify-content: space-between;
   }
-  
+
   .slide-content img {
     width: 50%; /* Take just under half of the container's width */
     height: auto;
@@ -1376,7 +1375,7 @@ nav.navbar.shrink .navbar-brand img {
     object-fit: cover; /* Ensure the images cover the allocated space */
     border-radius: 10px; /* Optional: adds rounded corners */
   }
-  
+
   .glide__arrows {
     position: absolute;
     top: 50%;
@@ -1386,7 +1385,7 @@ nav.navbar.shrink .navbar-brand img {
     transform: translateY(-50%);
     pointer-events: none; /* Allow click-through to images if needed */
   }
-  
+
   .glide__arrow {
     background: rgba(0, 0, 0, 0.7); /* Darker semi-transparent background */
     color: #fff; /* White arrow color */
@@ -1398,15 +1397,15 @@ nav.navbar.shrink .navbar-brand img {
     transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth transition */
     pointer-events: all; /* Ensure arrows are clickable */
   }
-  
+
   .glide__arrow--left {
     left: 10px;
   }
-  
+
   .glide__arrow--right {
     right: 10px;
   }
-  
+
   /* Responsive Arrow Positioning */
   @media (max-width: 1024px) {
     .glide__arrows {
@@ -1414,61 +1413,61 @@ nav.navbar.shrink .navbar-brand img {
       transform: translateY(-50%);
     }
   }
-  
+
   @media (max-width: 768px) {
     .glide__arrows {
       top: 50%;
       transform: translateY(-50%);
     }
-  
+
     .glide__arrow {
       padding: 12px; /* Slightly reduce arrow size for smaller screens */
     }
   }
-  
+
   @media (max-width: 480px) {
     .glide__arrows {
       top: 50%;
       transform: translateY(-50%);
     }
-  
+
     .glide__arrow {
       padding: 10px; /* Further reduce arrow size for mobile devices */
     }
   }
-  
+
 
   /* Ensuring arrows are centered on image height */
   .glide__slide {
     position: relative; /* Ensure arrows are relative to the slide */
   }
-  
+
   .glide__arrows {
     top: 50%;
     transform: translateY(-50%);
   }
-  
 
-  
+
+
   .slider-headline {
     text-align: center;
     margin: 40px 0; /* Adds margin to both top and bottom */
   }
-  
+
   .slider-headline h2 {
     font-size: 2rem; /* Adjust font size as needed */
     color: #333; /* Adjust color as needed */
     margin: 0;
     padding: 0;
   }
-  
+
   .slider-headline h3 {
     font-size: 1.5rem; /* Adjust font size as needed */
     color: #666; /* Adjust color as needed */
     margin: 10px 0 0 0; /* Adds more space between h2 and h3 */
     padding: 0;
   }
-  
+
 
 .img-fluid {
     background: transparent;
@@ -1852,9 +1851,9 @@ nav.navbar.shrink .navbar-brand img {
 .animated-background-image {
     position: absolute;
     width: 100%;
-    height: 100%; 
+    height: 100%;
     top: 0;
-    left: 0; 
+    left: 0;
     background-image: url('assets/truck-bg.png');
     background-size: 1400px 1000px;
     background-repeat: no-repeat;
@@ -1895,7 +1894,7 @@ nav.navbar.shrink .navbar-brand img {
         opacity: 0.18;
     }
     50% {
-        background-position: center center; 
+        background-position: center center;
         opacity: 0.2;
     }
     75% {
@@ -1916,7 +1915,7 @@ nav.navbar.shrink .navbar-brand img {
         background-size: 600px 300px;
         background-position: calc(100% + 300px) center;
         animation: truckJourneyTablet 14s ease-in-out infinite;    }
-    
+
     @keyframes truckJourneyTablet {
         0% {
             background-position: calc(100% + 300px) center;
@@ -1954,7 +1953,7 @@ nav.navbar.shrink .navbar-brand img {
         opacity: 0.12; /* Smanjeno za mobilni */
         animation: backgroundEntry 2s ease-out forwards, truckJourneyMobile 12s ease-in-out infinite 2s;
     }
-    
+
     @keyframes truckJourneyMobile {
         0% {
             background-position: calc(100% + 200px) center;
@@ -1993,7 +1992,7 @@ nav.navbar.shrink .navbar-brand img {
         opacity: 0.1;
         animation: backgroundEntry 2s ease-out forwards, truckJourneySmallMobile 10s ease-in-out infinite 2s;
     }
-    
+
     @keyframes truckJourneySmallMobile {
         0% {
             background-position: calc(100% + 140px) center;
@@ -2031,7 +2030,7 @@ nav.navbar.shrink .navbar-brand img {
         opacity: 0.08;
         animation: backgroundEntry 2s ease-out forwards, truckJourneyExtraSmall 8s linear infinite 2s;
     }
-    
+
     @keyframes truckJourneyExtraSmall {
         0% {
             background-position: calc(100% + 100px) center;
@@ -2266,4 +2265,207 @@ nav.navbar.shrink .navbar-brand img {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
+}
+
+/* Expert Help floating widget */
+.help-widget-trigger {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 1050;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 22px;
+    border-radius: 50px;
+    border: 1px solid #f4b700;
+    background: linear-gradient(135deg, #ffd54d 0%, #f4b700 100%);
+    color: #1c2833;
+    font-weight: 700;
+    font-size: 0.95rem;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.2s ease;
+}
+
+.help-widget-trigger:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
+}
+
+.help-widget-trigger i {
+    font-size: 1.1rem;
+}
+
+.help-widget-trigger.is-open {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.help-widget-panel {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 1060;
+    width: 360px;
+    max-width: calc(100vw - 32px);
+    max-height: calc(100vh - 100px);
+    display: flex;
+    flex-direction: column;
+    background: var(--primary-color-darker);
+    color: var(--text-color);
+    border-radius: 14px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px) scale(0.97);
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+}
+
+.help-widget-panel.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+.help-widget-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    background: linear-gradient(135deg, #ffd54d 0%, #f4b700 100%);
+    color: #1c2833;
+    flex-shrink: 0;
+}
+
+.help-widget-header h5 {
+    margin: 0;
+    font-weight: 800;
+    font-size: 1.05rem;
+}
+
+.help-widget-header p {
+    margin: 2px 0 0;
+    font-size: 0.8rem;
+    color: rgba(28, 40, 51, 0.75);
+}
+
+.help-widget-close {
+    background: transparent;
+    border: none;
+    font-size: 1.4rem;
+    line-height: 1;
+    color: #1c2833;
+    cursor: pointer;
+    padding: 4px 8px;
+}
+
+.help-widget-body {
+    padding: 18px 20px 20px;
+    overflow-y: auto;
+}
+
+.help-widget-body .form-group {
+    margin-bottom: 14px;
+}
+
+.help-widget-body .form-group label {
+    font-size: 0.85rem;
+    margin-bottom: 4px;
+}
+
+.help-widget-body textarea.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    resize: vertical;
+    min-height: 90px;
+    transition: border-color 0.3s ease;
+}
+
+.help-widget-body textarea.form-control:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.help-attach {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.help-attach-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px dashed rgba(255, 255, 255, 0.4);
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    margin-bottom: 0;
+}
+
+.help-attach-label:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.help-attach input[type="file"] {
+    display: none;
+}
+
+.help-attach-filename {
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 180px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.help-attach-remove {
+    background: transparent;
+    border: none;
+    color: #ff8080;
+    font-size: 0.8rem;
+    cursor: pointer;
+    padding: 0;
+    text-decoration: underline;
+}
+
+.help-attach-preview {
+    margin-top: 10px;
+    max-width: 100%;
+    max-height: 120px;
+    border-radius: 8px;
+    display: none;
+    object-fit: cover;
+}
+
+@media (max-width: 480px) {
+    .help-widget-panel {
+        right: 16px;
+        left: 16px;
+        width: auto;
+        bottom: 90px;
+        max-height: calc(100vh - 140px);
+    }
+
+    .help-widget-trigger {
+        right: 16px;
+        bottom: 16px;
+        padding: 12px 18px;
+        font-size: 0.85rem;
+    }
+
+    .help-widget-trigger span {
+        display: none;
+    }
 }
