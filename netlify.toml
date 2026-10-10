@@ -10,3 +10,9 @@
   to = "/.netlify/functions/sendEmail"
   status = 200
   method = ["POST"]
+
+[[redirects]]
+  from = "/send-help-request"
+  to = "/.netlify/functions/sendHelpRequest"
+  status = 200
+  method = ["POST"]
