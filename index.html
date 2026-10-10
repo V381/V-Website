@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MB Superb Logistics</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap">
     <link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="styles.css"></noscript>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-5e2ESR8Ycmos6g3gAKr1Jvwye8sW4U1u/cAKulfVJnkakCcMqhOudbtPnvJ+nbv7" crossorigin="anonymous">
@@ -46,10 +49,7 @@
                     <li class="nav-item d-none d-lg-inline-block border-right"><a class="nav-link"><i class="fas fa-envelope"></i>service@mbsuperblogistics.com</a></li>
                     <li class="nav-item d-none d-lg-inline-block border-right"><a class="nav-link cursor-pointer"><i class="fas fa-clock"></i> MON-SAT</a></li>
                     <li class="nav-item"><a class="nav-link" href="#why-us">Why Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#steps">Steps</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#stats">Stats</a></li>
                     <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#faq">FAQs</a></li>
                     <li class="nav-item"><a class="nav-link" href="blog-list.html">BLOG</a></li>
                     <li class="nav-item"><a class="nav-link" href="pages/dealership.html">Dealership</a></li>
                     <li class="nav-item"><a class="nav-link" href="#quote">Contact Us</a></li>
@@ -60,23 +60,12 @@
 
     <main class="content d-flex flex-column align-items-center justify-content-center text-center">
 
-        <div class="wave-container">
-            <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                 viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-                <defs>
-                    <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-                </defs>
-                <g class="parallax">
-                    <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7)" />
-                    <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
-                    <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
-                    <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
-                </g>
-            </svg>
-        </div>
         <div class="container">
             <h1 class="display-10 main-title">MB Superb Logistics </h1>
-            <h2 class="main-subtitle">GET A QUOTE</h2>
+            <div class="main-subtitle">
+                <h2 class="main-subtitle-text">Your Vehicle. Our Commitment. Every Mile</h2>
+                <p class="main-tagline">Get My Shipping Price</p>
+            </div>
             <section class="p-4 rounded form-section">
                 <form id="vehicle-pickup-form" aria-label="Vehicle Pickup Form" novalidate>
                     <div class="form-group">
@@ -126,6 +115,13 @@
         </div>
     </main>
     <div class="overflow-hidden">
+        <section class="trust-section container-fluid" data-aos="fade-up">
+            <div class="container">
+                <p class="trust-text">
+                    At <span class="trust-highlight">MB Superb Logistics</span>, we believe auto transport should be <span class="trust-highlight">simple, transparent, and stress-free</span>. We provide <span class="trust-highlight">honest upfront pricing</span> with no hidden fees or unexpected charges upon delivery. Fully registered with the FMCSA (<span class="trust-highlight">USDOT #4262895 | MC #1654272</span>), our credentials are publicly verifiable for your peace of mind. From pickup to delivery, we keep you informed with carrier updates and vehicle inspections at both ends of the journey. Your trust is our priority, and your satisfaction is our commitment.
+                </p>
+            </div>
+        </section>
         <section id="why-us" class="shipping-steps container-fluid mt-5 mb-0" data-aos="fade-up">
             <div class="shipping-steps-inner">
                 <div class="row align-items-center">

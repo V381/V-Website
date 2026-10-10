@@ -38,7 +38,7 @@
 }
 
 body {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
     color: #333;
     margin: 0;
     padding: 0;
@@ -47,6 +47,13 @@ body {
     visibility: hidden;
     transition: opacity 0.3s ease-in;
     opacity: 0;
+}
+
+h1, h2, h3, h4, h5, h6,
+.navbar-brand,
+.nav-link,
+.btn {
+    font-family: 'Sora', 'Helvetica Neue', Arial, sans-serif;
 }
 
 body.loaded {
@@ -100,22 +107,6 @@ main.content {
     z-index: 1;
 }
 
-.wave-container {
-    position: absolute;
-    width: 100%;
-    bottom: 0;
-    left: 0;
-    overflow: hidden;
-    line-height: 0;
-    z-index: 1;
-}
-
-.waves {
-    width: 100%;
-    height: auto;
-    z-index: 1;
-}
-
 .container {
     max-width: 100%;
     padding-left: 15px;
@@ -128,7 +119,7 @@ main.content {
     max-width: 500px;
     width: 100%;
     margin: 20px auto;
-    background-color: var(--primary-color);
+    background-color: rgba(0, 0, 0, 0.5);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -539,6 +530,64 @@ main.content {
     margin-bottom: 24px;
 }
 
+.trust-section {
+    background: linear-gradient(135deg, rgba(34, 49, 63, 0.95), rgba(27, 39, 50, 0.9));
+    padding: 48px 32px;
+    position: relative;
+    overflow: hidden;
+}
+
+.trust-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, gold, transparent);
+}
+
+.trust-section .container {
+    max-width: 900px;
+}
+
+.trust-text {
+    color: #e8e8e8;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    text-align: center;
+    margin: 0;
+    letter-spacing: 0.2px;
+    animation: trustFadeIn 1.1s ease-out;
+}
+
+.trust-highlight {
+    color: gold;
+    font-weight: 700;
+}
+
+@keyframes trustFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .trust-section {
+        padding: 32px 20px;
+    }
+
+    .trust-text {
+        font-size: 1rem;
+        text-align: left;
+    }
+}
+
 .shipping-why-header {
     margin-top: 8px;
 }
@@ -782,11 +831,23 @@ main.content {
 }
 
 .main-subtitle {
-    font-size: var(--main-subtitle-font-size-large);
     background: rgba(0, 0, 0, 0.5);
-    padding: 5px;
+    padding: 10px 15px;
     border-radius: 5px;
+    display: inline-block;
+}
+
+.main-subtitle-text {
+    font-size: var(--main-subtitle-font-size-large);
     color: gold;
+    margin-bottom: 8px;
+}
+
+.main-tagline {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #fff;
+    margin: 0;
 }
 
 @media (max-width: 768px) {
@@ -794,8 +855,12 @@ main.content {
         font-size: var(--main-title-font-size-small);
     }
 
-    .main-subtitle {
+    .main-subtitle-text {
         font-size: var(--main-subtitle-font-size-small);
+    }
+
+    .main-tagline {
+        font-size: 1rem;
     }
 
     .form-section {
@@ -1866,8 +1931,8 @@ nav.navbar.shrink .navbar-brand img {
 /* Hero background photo (replaces the former animated truck graphic) */
 main.content {
     background-image:
-        linear-gradient(135deg, rgba(34, 49, 63, 0.88), rgba(27, 39, 50, 0.82)),
-        url('assets/main-page/mb-truck.png');
+        linear-gradient(135deg, rgba(34, 49, 63, 0.78), rgba(27, 39, 50, 0.72)),
+        url('https://images.unsplash.com/photo-1592805144716-feeccccef5ac?auto=format&fit=crop&w=1920&q=80');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
