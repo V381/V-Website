@@ -1368,9 +1368,15 @@ nav.navbar.shrink .navbar-brand img {
 }
 
 .footer {
-    background-color: var(--primary-color);
+    background-color: var(--primary-color-darker);
     padding-top: 32px;
     padding-bottom: 40px;
+}
+
+.footer-brand {
+    color: gold;
+    font-weight: 700;
+    letter-spacing: 0.3px;
 }
 
 .footer a {
