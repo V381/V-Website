@@ -1295,19 +1295,54 @@ nav.navbar.shrink .navbar-brand img {
 }
 
 
-/* Centering the navbar content */
-.navbar-collapse {
-    justify-content: center;
-    align-items: center;
-}
-
-/* Let the nav wrap as whole items (not mid-word) and stay vertically aligned */
 .navbar-nav {
     flex-wrap: wrap;
     align-items: center;
-    align-content: center;
-    justify-content: center;
-    row-gap: 10px;
+}
+
+/* Large desktop (>=1700px): single row, right-aligned, no gap between groups */
+@media (min-width: 1700px) {
+    .navbar-collapse {
+        flex-wrap: nowrap;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .navbar-nav-info,
+    .navbar-nav-links {
+        flex-wrap: nowrap;
+        margin-left: 0 !important;
+    }
+}
+
+/* Mid resolution (992px - 1699px): two centered rows */
+@media (min-width: 992px) and (max-width: 1699.98px) {
+    nav.navbar {
+        height: auto;
+        padding-top: 6px;
+        padding-bottom: 6px;
+    }
+
+    .navbar-collapse {
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .navbar-nav-info,
+    .navbar-nav-links {
+        width: 100%;
+        justify-content: center;
+        margin-left: 0 !important;
+    }
+
+    .navbar-nav-info {
+        margin-bottom: 4px;
+    }
+
+    .nav-hours-item {
+        border-right: none !important;
+    }
 }
 
 .navbar-nav .nav-link {
@@ -1320,13 +1355,13 @@ nav.navbar.shrink .navbar-brand img {
 }
 
 /* Navbar icons on larger screens */
-.navbar-nav .nav-item.d-none.d-lg-inline-block .nav-link {
+.navbar-nav-info .nav-item .nav-link {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.navbar-nav .nav-item.d-none.d-lg-inline-block .nav-link i {
+.navbar-nav-info .nav-item .nav-link i {
     margin-right: 5px;
 }
 
@@ -1336,13 +1371,13 @@ nav.navbar.shrink .navbar-brand img {
 }
 
 /* Adjust the padding of the border-right items */
-.nav-item.d-none.d-lg-inline-block.border-right {
+.navbar-nav-info .nav-item.border-right {
     padding-right: 15px;
     padding-left: 15px;
 }
 
 /* Adjust padding for the non-border items */
-.nav-item.d-none.d-lg-inline-block {
+.navbar-nav-info .nav-item {
     padding-left: 15px;
 }
 
