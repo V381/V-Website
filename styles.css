@@ -1071,6 +1071,11 @@ nav.navbar.shrink .navbar-brand img {
     background-color: var(--primary-color-darker);
 }
 
+.quote-heading {
+    color: gold;
+    font-weight: 700;
+}
+
 .quote-section a.btn {
     margin-top: 1rem;
 }
@@ -1293,6 +1298,25 @@ nav.navbar.shrink .navbar-brand img {
 /* Centering the navbar content */
 .navbar-collapse {
     justify-content: center;
+    align-items: center;
+}
+
+/* Let the nav wrap as whole items (not mid-word) and stay vertically aligned */
+.navbar-nav {
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    row-gap: 10px;
+}
+
+.navbar-nav .nav-link {
+    white-space: nowrap;
+}
+
+.nav-item.border-right {
+    display: flex;
+    align-items: center;
 }
 
 /* Navbar icons on larger screens */
@@ -1341,6 +1365,7 @@ nav.navbar.shrink .navbar-brand img {
     padding: 6px 14px;
     font-weight: 700;
 }
+
 
 
 .spinner-border {
