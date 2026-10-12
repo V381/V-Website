@@ -1300,8 +1300,8 @@ nav.navbar.shrink .navbar-brand img {
     align-items: center;
 }
 
-/* Large desktop (>=1700px): single row, right-aligned, no gap between groups */
-@media (min-width: 1700px) {
+/* Desktop: single row, right-aligned, no gap between the two groups */
+@media (min-width: 992px) {
     .navbar-collapse {
         flex-wrap: nowrap;
         justify-content: flex-end;
@@ -1315,33 +1315,66 @@ nav.navbar.shrink .navbar-brand img {
     }
 }
 
-/* Mid resolution (992px - 1699px): two centered rows */
-@media (min-width: 992px) and (max-width: 1699.98px) {
-    nav.navbar {
-        height: auto;
-        padding-top: 6px;
-        padding-bottom: 6px;
+/* Mid resolution (1300px - 1599px): scale down to keep one row */
+@media (min-width: 1300px) and (max-width: 1599.98px) {
+    .navbar-nav-links .nav-link {
+        font-size: 0.9rem;
+        padding-left: 0.6rem;
+        padding-right: 0.6rem;
     }
 
-    .navbar-collapse {
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
+    .navbar-nav-info .nav-link {
+        font-size: 0.9rem;
     }
 
-    .navbar-nav-info,
-    .navbar-nav-links {
-        width: 100%;
-        justify-content: center;
-        margin-left: 0 !important;
+    .nav-phone-link {
+        font-size: 1rem;
     }
 
-    .navbar-nav-info {
-        margin-bottom: 4px;
+    .navbar-nav-info .nav-item.border-right {
+        padding-left: 10px;
+        padding-right: 10px;
     }
 
-    .nav-hours-item {
-        border-right: none !important;
+    .nav-item.nav-phone-item {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+}
+
+/* Smaller desktop (992px - 1299px): scale down further to keep one row */
+@media (min-width: 992px) and (max-width: 1299.98px) {
+    .navbar-nav-links .nav-link {
+        font-size: 0.75rem;
+        padding-left: 0.35rem;
+        padding-right: 0.35rem;
+    }
+
+    .navbar-nav-info .nav-link {
+        font-size: 0.75rem;
+    }
+
+    .nav-phone-link {
+        font-size: 0.85rem;
+    }
+
+    .navbar-nav-info .nav-link i {
+        margin-right: 3px;
+    }
+
+    .navbar-nav-info .nav-item.border-right {
+        padding-left: 7px;
+        padding-right: 7px;
+    }
+
+    .nav-item.nav-phone-item {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    nav.navbar .navbar-brand img {
+        max-height: 56px;
+        max-width: 105px !important;
     }
 }
 
@@ -1355,13 +1388,15 @@ nav.navbar.shrink .navbar-brand img {
 }
 
 /* Navbar icons on larger screens */
-.navbar-nav-info .nav-item .nav-link {
+.navbar-nav-info .nav-item .nav-link,
+.navbar-nav .nav-item.d-none.d-lg-inline-block .nav-link {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.navbar-nav-info .nav-item .nav-link i {
+.navbar-nav-info .nav-item .nav-link i,
+.navbar-nav .nav-item.d-none.d-lg-inline-block .nav-link i {
     margin-right: 5px;
 }
 
@@ -1371,13 +1406,15 @@ nav.navbar.shrink .navbar-brand img {
 }
 
 /* Adjust the padding of the border-right items */
-.navbar-nav-info .nav-item.border-right {
+.navbar-nav-info .nav-item.border-right,
+.nav-item.d-none.d-lg-inline-block.border-right {
     padding-right: 15px;
     padding-left: 15px;
 }
 
 /* Adjust padding for the non-border items */
-.navbar-nav-info .nav-item {
+.navbar-nav-info .nav-item,
+.nav-item.d-none.d-lg-inline-block {
     padding-left: 15px;
 }
 
@@ -1389,6 +1426,18 @@ nav.navbar.shrink .navbar-brand img {
 
 .nav-phone-link i {
     margin-left: 6px;
+}
+
+/* "Talk to an expert:" label — only on Full HD and above */
+.nav-phone-label {
+    display: none;
+}
+
+@media (min-width: 1800px) {
+    .nav-phone-label {
+        display: inline;
+        margin-right: 4px;
+    }
 }
 
 .nav-item.nav-phone-item {
