@@ -14,9 +14,19 @@
         }
 
         const MAX_FILE_SIZE = 4 * 1024 * 1024; // 4MB
+        const MIN_MESSAGE_LENGTH = 10;
+        const SEND_COOLDOWN_MS = 60 * 1000;
         let attachmentData = null; // { filename, type, content (base64) }
 
+        // Spam protection: how long the visitor spent on the form (bots submit instantly)
+        const pageLoadedAt = Date.now();
+        let formOpenedAt = null;
+        let lastSentAt = 0;
+
         function openPanel() {
+            if (!formOpenedAt) {
+                formOpenedAt = Date.now();
+            }
             panel.classList.add('is-open');
             trigger.classList.add('is-open');
             trigger.setAttribute('aria-expanded', 'true');
@@ -137,37 +147,86 @@
         }
 
         function validateHelpEmail(email) {
-            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+            return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.trim());
+        }
+
+        // ---- Inline field validation ----
+        const fieldIds = ['help-name', 'help-subject', 'help-email', 'help-message'];
+
+        function setFieldError(id, text) {
+            const input = document.getElementById(id);
+            const error = document.getElementById(id + '-error');
+            if (!input || !error) return;
+            if (text) {
+                input.classList.add('is-invalid');
+                input.setAttribute('aria-invalid', 'true');
+                error.textContent = text;
+                error.classList.add('is-visible');
+            } else {
+                input.classList.remove('is-invalid');
+                input.removeAttribute('aria-invalid');
+                error.textContent = '';
+                error.classList.remove('is-visible');
+            }
+        }
+
+        function clearAllErrors() {
+            fieldIds.forEach(function (id) { setFieldError(id, ''); });
+        }
+
+        // Clear a field's error as soon as the visitor starts fixing it
+        fieldIds.forEach(function (id) {
+            const input = document.getElementById(id);
+            if (input) {
+                input.addEventListener('input', function () { setFieldError(id, ''); });
+            }
+        });
+
+        function validateFields(values) {
+            const errors = {};
+            if (!values.name) errors['help-name'] = 'Please enter your name.';
+            if (!values.subject) errors['help-subject'] = 'Please enter a subject.';
+            if (!values.email) {
+                errors['help-email'] = 'Please enter your email address.';
+            } else if (!validateHelpEmail(values.email)) {
+                errors['help-email'] = 'Please enter a valid email address (e.g. name@example.com).';
+            }
+            if (!values.message) {
+                errors['help-message'] = 'Please tell us how we can help.';
+            } else if (values.message.length < MIN_MESSAGE_LENGTH) {
+                errors['help-message'] = 'Please add a bit more detail (at least ' + MIN_MESSAGE_LENGTH + ' characters).';
+            }
+            return errors;
         }
 
         form.addEventListener('submit', function (event) {
             event.preventDefault();
 
-            const name = document.getElementById('help-name').value.trim();
-            const subject = document.getElementById('help-subject').value.trim();
-            const email = document.getElementById('help-email').value.trim();
-            const message = document.getElementById('help-message').value.trim();
+            const values = {
+                name: document.getElementById('help-name').value.trim(),
+                subject: document.getElementById('help-subject').value.trim(),
+                email: document.getElementById('help-email').value.trim(),
+                message: document.getElementById('help-message').value.trim()
+            };
             const honeypotField = document.getElementById('help-honeypot');
             const honeypot = honeypotField ? honeypotField.value : '';
 
-            if (!name || !subject || !email || !message) {
-                if (window.Swal) {
-                    Swal.fire({
-                        title: 'Missing information',
-                        text: 'Please fill in all fields.',
-                        icon: 'warning',
-                        confirmButtonText: 'OK'
-                    });
-                }
+            clearAllErrors();
+            const errors = validateFields(values);
+            const invalidIds = Object.keys(errors);
+            if (invalidIds.length) {
+                invalidIds.forEach(function (id) { setFieldError(id, errors[id]); });
+                const firstInvalid = document.getElementById(fieldIds.find(function (id) { return errors[id]; }));
+                if (firstInvalid) firstInvalid.focus();
                 return;
             }
 
-            if (!validateHelpEmail(email)) {
+            if (lastSentAt && Date.now() - lastSentAt < SEND_COOLDOWN_MS) {
                 if (window.Swal) {
                     Swal.fire({
-                        title: 'Invalid email',
-                        text: 'Please enter a valid email address.',
-                        icon: 'warning',
+                        title: 'Message already sent',
+                        text: 'We got your message. Please wait a minute before sending another one.',
+                        icon: 'info',
                         confirmButtonText: 'OK'
                     });
                 }
@@ -180,11 +239,12 @@
             submitButton.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Sending...';
 
             const payload = {
-                name: name,
-                subject: subject,
-                email: email,
-                message: message,
-                honeypot: honeypot
+                name: values.name,
+                subject: values.subject,
+                email: values.email,
+                message: values.message,
+                honeypot: honeypot,
+                elapsed: Date.now() - (formOpenedAt || pageLoadedAt)
             };
 
             if (attachmentData) {
@@ -209,7 +269,10 @@
                                 confirmButtonText: 'OK'
                             });
                         }
+                        lastSentAt = Date.now();
+                        formOpenedAt = null;
                         form.reset();
+                        clearAllErrors();
                         clearAttachment();
                         closePanel();
                     } else {

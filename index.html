@@ -990,7 +990,7 @@
         <i class="fas fa-headset"></i>
         <span>Get expert help</span>
     </button>
-
+ 
     <div id="help-widget-panel" class="help-widget-panel" role="dialog" aria-modal="true" aria-labelledby="help-widget-title">
         <div class="help-widget-header">
             <div>
@@ -1003,19 +1003,23 @@
             <form id="help-widget-form" novalidate>
                 <div class="form-group">
                     <label for="help-name"><i class="fas fa-user"></i> Name</label>
-                    <input type="text" id="help-name" name="name" class="form-control" placeholder="Enter your name" required aria-required="true">
+                    <input type="text" id="help-name" name="name" class="form-control" placeholder="Enter your name" maxlength="100" autocomplete="name" required aria-required="true" aria-describedby="help-name-error">
+                    <div id="help-name-error" class="help-field-error" aria-live="polite"></div>
                 </div>
                 <div class="form-group">
                     <label for="help-subject"><i class="fas fa-tag"></i> Subject</label>
-                    <input type="text" id="help-subject" name="subject" class="form-control" placeholder="What's this about?" required aria-required="true">
+                    <input type="text" id="help-subject" name="subject" class="form-control" placeholder="What's this about?" maxlength="150" required aria-required="true" aria-describedby="help-subject-error">
+                    <div id="help-subject-error" class="help-field-error" aria-live="polite"></div>
                 </div>
                 <div class="form-group">
                     <label for="help-email"><i class="fas fa-envelope"></i> Email address</label>
-                    <input type="email" id="help-email" name="email" class="form-control" placeholder="Enter your email" required aria-required="true">
+                    <input type="email" id="help-email" name="email" class="form-control" placeholder="Enter your email" maxlength="254" autocomplete="email" required aria-required="true" aria-describedby="help-email-error">
+                    <div id="help-email-error" class="help-field-error" aria-live="polite"></div>
                 </div>
                 <div class="form-group">
                     <label for="help-message"><i class="fas fa-comment-dots"></i> How can we help</label>
-                    <textarea id="help-message" name="message" class="form-control" rows="4" placeholder="Tell us a bit about what you need..." required aria-required="true"></textarea>
+                    <textarea id="help-message" name="message" class="form-control" rows="4" placeholder="Tell us a bit about what you need..." maxlength="3000" required aria-required="true" aria-describedby="help-message-error"></textarea>
+                    <div id="help-message-error" class="help-field-error" aria-live="polite"></div>
                     <div class="help-attach">
                         <label class="help-attach-label" for="help-attachment">
                             <i class="fas fa-paperclip"></i> Attach image
@@ -1026,9 +1030,10 @@
                     </div>
                     <img id="help-attach-preview" class="help-attach-preview" alt="Attachment preview">
                 </div>
-                <div style="display:none;">
-                    <label for="help-honeypot">If you are a human, leave this field blank:</label>
-                    <input type="text" id="help-honeypot" name="honeypot" value="">
+                <!-- Honeypot: visually off-screen (not display:none, which bots skip). Humans never see or reach it. -->
+                <div class="help-hp" aria-hidden="true">
+                    <label for="help-honeypot">Website</label>
+                    <input type="text" id="help-honeypot" name="website" value="" tabindex="-1" autocomplete="off">
                 </div>
                 <button type="submit" class="btn btn-primary btn-block">
                     <i class="fas fa-paper-plane"></i> Send a message

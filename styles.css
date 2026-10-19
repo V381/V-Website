@@ -2472,3 +2472,31 @@ main.content {
         display: none;
     }
 }
+
+/* Help widget: inline field validation */
+.help-field-error {
+    display: none;
+    margin-top: 5px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #ff8a80;
+}
+
+.help-field-error.is-visible {
+    display: block;
+}
+
+.help-widget-body .form-control.is-invalid {
+    border-color: #ff6b6b;
+    box-shadow: 0 0 0 2px rgba(255, 107, 107, 0.25);
+}
+
+/* Help widget honeypot: off-screen so humans never see it, but still "visible" to bots */
+.help-hp {
+    position: absolute !important;
+    left: -10000px !important;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
